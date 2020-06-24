@@ -43,10 +43,15 @@ namespace Taschenrechner_Iteration_1
             Console.WriteLine("****TASCHENRECHNER****");
 
             Console.WriteLine("Geben Sie bitte ein ersten Summanden ein:");
-            //Console.ReadLine();
+
+            string ersterSummand = Console.ReadLine();
+            // = is der Zuweisungsoperator
+            //nicht mit == verwechseln, das ist genau gleich Vergleichsoperator
+            // Datentyp Variablenname IMMER kleingeschrieben =Zuweisungsoperator und dann der Wert der diese Variable zugewiesen sein soll.
 
             Console.WriteLine("Geben Sie bitte ein zweiten Summanden ein:");
-            //Console.ReadLine();
+            string zweiterSummand = Console.ReadLine();
+            //hier das gleiche mit andere Variablenname
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
             Console.ReadKey();
