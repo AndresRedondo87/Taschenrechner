@@ -84,8 +84,24 @@ namespace Taschenrechner_Iteration_1
             //      long Convert.ToInt64
             // in diesem Fall passt mit ToInt32. die verschiedene Werte haben mit der Auflösung (und Wertebereich) zu tun.
 
+
+            //Video 31 Die User Story fertig stelle und testen
+            // schon in vorige commit erledigt, hier verbessert
+
             int summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
-            Console.WriteLine("Die Summe von gewandelter string {0} \nund gewandelter string {1} beide als int32, ist {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+            Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+
+            // Zum Tests Bestätigen,auch die Ausgabe Fenster sehen, wenn wir es sauber schon geschlossen haben, kommt diese meldung:
+            //Das Programm "[24464] Taschenrechner.exe" wurde mit Code 0 (0x0) beendet.
+
+            //Wir bestätigen dass die Anforderungen bzw. Akzeptanzkriterien aus den Stories  richtig implementiert worden sind:
+            // in diesem Fall wäre es die zahlen von 0 bis 10 zu summieren....
+
+            //Wenn wir zum Beispiel eine Buchstabe eingeben kommt sowas in die Ausgabefenster:
+            //Ausnahme ausgelöst: "System.FormatException" in mscorlib.dll
+            //Ein Ausnahmefehler des Typs "System.FormatException" ist in mscorlib.dll aufgetreten.
+            //Die Eingabezeichenfolge hat das falsche Format.
+
 
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");

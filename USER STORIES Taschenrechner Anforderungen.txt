@@ -25,8 +25,11 @@ Titel: Addieren
 Story:Als Benutzer möchte ich zwei Zahlen eingeben, um deren Summe berechnen zu lassen
 Akzeptanzkriterien:
 	-Zahlen zwischen 0 und 10 können addiert werden.
-	-[ erweiterung als Beispiel: Zahlen in HEX eingeben können]
-	
+	[- erweiterung als Beispiel: Zahlen in HEX eingeben können]
+Status:
+	-Implementiert
+	-Getestet
+	-Erledigt
 
 Titel: Starten
 Story: Als Benutzer möchte ich den Taschenrechner schnell aufrufen können, um mein Resultat schnell zu bekommen
