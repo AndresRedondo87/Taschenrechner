@@ -102,6 +102,10 @@ namespace Taschenrechner_Iteration_1
             //Ein Ausnahmefehler des Typs "System.FormatException" ist in mscorlib.dll aufgetreten.
             //Die Eingabezeichenfolge hat das falsche Format.
 
+            //Video 32 Versionskontrolle (Git) - Das Sicherheitsnetz für deinen Taschenrechner
+            // das habe ich schon eigentlich selber erledigt!!!
+            // Um die Video-Beschreibung zu folgen habe ich ein anderes Projekt verwendet, der Klassendefinieren. So geht es auch.
+
 
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
