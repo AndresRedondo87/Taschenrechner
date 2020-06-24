@@ -53,6 +53,25 @@ namespace Taschenrechner_Iteration_1
             string zweiterSummand = Console.ReadLine();
             //hier das gleiche mit andere Variablenname
 
+
+
+            //Video 29 Datentypen: Text ist nicht gleich Zahl
+            string ersterText = "Zehn";
+            string zweiterText = "10";
+            string summe1 = ersterText + zweiterText;
+            string summe2 = ersterText +  " + " + zweiterText;   //so sehen wir das verketten besser
+
+            Console.WriteLine("\n\n");
+            Console.WriteLine("'String-Summe': {0}",summe1);
+            Console.WriteLine("'String-Summe': {0}", summe2);
+            Console.WriteLine("'String-Summe' macht Zeichenketten verketten, bzw. zusammenführen");
+
+
+            int ersteZahl = 10;
+            int zweiteZahl = 10;
+            int summeInt = ersteZahl + zweiteZahl;
+            Console.WriteLine("\n'Int-Summe': {0}", summeInt);
+
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
             Console.ReadKey();
         }
