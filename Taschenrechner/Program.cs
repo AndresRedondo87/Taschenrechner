@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,8 +38,18 @@ namespace Taschenrechner_Iteration_1
             //			- Die Anwendung läuft auf einem Rechner mit Windows 10
             //------------------------------------------------------------------
 
-               
+            //CONSOLE VERWENDEN: ERST HINWEISE AUSGEBEN UND DANN KAN DER BENUTZER EINGEBEN
+            //                      ERST DIE AUSGABEN, DANN DIE EINGABE
+            Console.WriteLine("****TASCHENRECHNER****");
 
+            Console.WriteLine("Geben Sie bitte ein ersten Summanden ein:");
+            //Console.ReadLine();
+
+            Console.WriteLine("Geben Sie bitte ein zweiten Summanden ein:");
+            //Console.ReadLine();
+
+            Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
+            Console.ReadKey();
         }
     }
 }
