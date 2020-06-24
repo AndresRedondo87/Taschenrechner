@@ -106,6 +106,12 @@ namespace Taschenrechner_Iteration_1
             // das habe ich schon eigentlich selber erledigt!!!
             // Um die Video-Beschreibung zu folgen habe ich ein anderes Projekt verwendet, der Klassendefinieren. So geht es auch.
 
+            // Video 33  wenn du nicht weiterkommst - Beispielquellcode in Visual Studio importieren
+            // wir verwenden Git + Visual Studio
+            // jeztz haben wir den in halt von https://github.com/LernMoment/einstieg-csharp-taschenrechner.git
+            // auch lokal unter C:\Users\Andres Redondo\source\repos\einstieg-csharp-taschenrechner
+            // aber nur als referenz Projekt! nicht immer alles abkopieren, so lernt man nicht.
+
 
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
