@@ -36,6 +36,12 @@ Story: Als Benutzer möchte ich den Taschenrechner schnell aufrufen können, um 
 Akzeptanzkriterien:
 	-Die Anwendung wird innerhalb von 2 Sekunden auf einem Rechner gestartet
 	-Die Anwendung läuft auf einem Rechner mit Windows 10
+
+Titel: Addieren mit gleitkommazahlen
+Story: Als Benutzer möchte ich mit gleitkommazahlen addieren zu können.
+Akzeptanzkriterien:
+	-Die beide Eingaben können nachkommastellen haben.
+	-Die Summe kann nachkommastellen haben und darstellen.
 	
 
 

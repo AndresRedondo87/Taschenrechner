@@ -1,6 +1,7 @@
 ﻿//using System;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,8 +77,10 @@ namespace Taschenrechner_Iteration_1
             //Video 30 C# Bibliothek: Convert, Text in Ganzzahl konvertieren
             //Wandel Text in Ganzzahlen
             //int ersterSummand //das geht nicht da diese Variablenname ist schon vorhanden.
-            int ersterSummandAlsZahl = Convert.ToInt32(ersterSummand);
-            int zweiterSummandAlsZahl = Convert.ToInt32(zweiterSummand);
+            //int ersterSummandAlsZahl = Convert.ToInt32(ersterSummand);
+            //int zweiterSummandAlsZahl = Convert.ToInt32(zweiterSummand);
+            //Nachtraeglich geaendert fuer Video 36 - Jetzt bist du dran, addieren mit Gleitkommazahlen
+
             // Beim suchen welche convert typ wir brauchen, sehen wir es bei der Rückgabewert von jede Methode in seine Beschreibungen:
             //      short Convert.ToInt16
             //      int Convert.ToInt32
@@ -86,10 +89,11 @@ namespace Taschenrechner_Iteration_1
 
 
             //Video 31 Die User Story fertig stelle und testen
-            // schon in vorige commit erledigt, hier verbessert
+            //// schon in vorige commit erledigt, hier verbessert
 
-            int summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
-            Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+            //int summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
+            //Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+            //Nachtraeglich geaendert fuer Video 36 - Jetzt bist du dran, addieren mit Gleitkommazahlen
 
             // Zum Tests Bestätigen,auch die Ausgabe Fenster sehen, wenn wir es sauber schon geschlossen haben, kommt diese meldung:
             //Das Programm "[24464] Taschenrechner.exe" wurde mit Code 0 (0x0) beendet.
@@ -111,6 +115,43 @@ namespace Taschenrechner_Iteration_1
             // jeztz haben wir den in halt von https://github.com/LernMoment/einstieg-csharp-taschenrechner.git
             // auch lokal unter C:\Users\Andres Redondo\source\repos\einstieg-csharp-taschenrechner
             // aber nur als referenz Projekt! nicht immer alles abkopieren, so lernt man nicht.
+
+
+
+            // Video35  Datentypen float, double und decimal
+            //float pi = 3.14;    // aufpassen, englischer schreibweise, Punkt anstatt komma muss verwendet werden.
+            // in C# werden zahlen defaultweise als double annerkannt, sie sind aber groesser als float, deswegen koennen wir probleme haben.
+            float pi = 3.14F;   //mit den F flaggen wir diese double als float fest.
+            Console.WriteLine("unser Pi hat den wert {0}", pi);
+            float pi2 = 0.0314e2F;  // 0,0312 * 10 hoch 2
+            Console.WriteLine("unser Pi2 hat den wert {0}", pi2);
+
+
+
+            // Video 36 - Jetzt bist du dran, addieren mit Gleitkommazahlen
+            //float ersterSummandAlsZahl = Convert.ToInt64(ersterSummand);
+            //float zweiterSummandAlsZahl = Convert.ToInt64(zweiterSummand); das hat irgendwie gar nicht funktioniert, exceptions mit . und , genauso
+
+            //Mein Versuch: wird nur PUNKT als Komma annerkannt, float anstatt double als er richtig gemacht hat
+            //float ersterSummandAlsZahl = float.Parse(ersterSummand, CultureInfo.InvariantCulture.NumberFormat);
+            //float zweiterSummandAlsZahl = float.Parse(zweiterSummand, CultureInfo.InvariantCulture.NumberFormat);
+            //float summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
+            //Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+
+            ////dies hier nimmt kein
+            //float ersterSummandAlsZahl = Convert.ToSingle(ersterSummand);
+            //float zweiterSummandAlsZahl = Convert.ToSingle(zweiterSummand); 
+
+
+            //Korrigiert nach Lehrer Version: double verwenden:
+            // wird nur komma als komma annerkannt, englische VS deutsche Einstellungen fuer zahlen sind.
+            double ersterSummandAlsZahl = Convert.ToDouble(ersterSummand);
+            double zweiterSummandAlsZahl = Convert.ToDouble(zweiterSummand);
+            double summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
+            Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+
+
+
 
 
 
