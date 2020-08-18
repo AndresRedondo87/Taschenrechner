@@ -150,6 +150,17 @@ namespace Taschenrechner_Iteration_1
             double summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
             Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
 
+            //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
+            //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
+            // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann 
+            // "mit ungeaenderten vergleichen...
+            // das zeigt uns die änderungen die wir noch nicht commited haben, rot heisst geloescht, gruen hinzugefuegt. 
+            // Leichte farben fuer die ganze Linien und starke fuer den Text ganz genau.
+
+            // Um Aenderungen zurueck zu nehmen, kann mann die so erledigen:
+            // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann Undo Changes.
+            // Damit muss mann sehr VORSICHTIG sein, da diese Aenderungen werden komplett geloescht und nicht mehr nachzuholen.
+
 
 
 
