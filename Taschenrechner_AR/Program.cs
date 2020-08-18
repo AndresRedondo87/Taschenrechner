@@ -172,17 +172,19 @@ namespace Taschenrechner_AR
 
 
             // Video 42 Verwende keine Versionbezeichnung im Namen
+            // Taschenrechner zu Taschenrechner_AR geaendert alst test nur.
             // Projekt umbenennen, dafuer im Projektmappen-Explorer aendern:
-                //Projektmappe
-                //Projektdatei 
-                //Namespace 
-                //Auch wichtig ist in die Eigenschaften die ausfuehrbare Datei Name und Standardnamespace auch zu aendern.
-                //Asemblyname
-                //Standardnamespace
-                //(der letzte ist wichtig fuer die weiterentwicklung
-                // dannach immer wieder erstellen und pruefen dass alles ok ist.
-
-
+            //      Projektmappe
+            //      Projektdatei 
+            //      Namespace 
+            // Auch wichtig ist in die Eigenschaften die ausfuehrbare Datei Name und Standardnamespace auch zu aendern.
+            //      Asemblyname
+            //      Standardnamespace
+            //(der letzte ist wichtig fuer die weiterentwicklung)
+            // dannach immer wieder erstellen und pruefen dass alles ok ist.
+            // dann auch die Repos ordner und Projekt Ordner name aendern. DAFUR ABER ERST VisualStudio schliessen.
+            // Beim erneut oeffnen wird es Visualstudio nicht finden koennen (nicht verfuegbar, 
+            // dann muss man das projekt entfernen und erneut laden aus der richtige Ordner bzw richtige Ordnername und das  schon vorhandene .csproj erneut laden
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
             Console.ReadKey();
