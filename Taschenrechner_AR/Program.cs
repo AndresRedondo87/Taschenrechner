@@ -186,6 +186,24 @@ namespace Taschenrechner_AR
             // Beim erneut oeffnen wird es Visualstudio nicht finden koennen (nicht verfuegbar, 
             // dann muss man das projekt entfernen und erneut laden aus der richtige Ordner bzw richtige Ordnername und das  schon vorhandene .csproj erneut laden
 
+
+            // Video 43 AssemblyInfo - Versionsinformationen in den Meta-Daten
+            // fuer die Info unter der .exe Datei Eigenschaften auch aendern zu koennen.
+            // Wir koenen die Dateibeschreibung unten Eigenschaften/Detail anpassen, vor allem sind wichtig die Dateibeschreibung, Produktname, DateiVersion und Produktversion ...
+            // dafuer gehen wir unter Projektname/Properties/AssemblyInfo und aendern die 
+            //    AssemblyTitle
+            //    AssemblyCompany
+            //    AssemblyProduct
+            //    AssemblyVersion ist etwas anderes und kann problemme erzeugen:
+            //Bei diesem Fehler wird auch darauf hingewiesen, dass man Deterministic ändern soll.
+            //Das findest du in deiner *.csproj. einfach in der (windows) Suche nach "*.csproj" suchen und mit z.B. Notepad++ ändern von
+            //<Deterministic>true</Deterministic> auf <Deterministic>false</Deterministic> Dann geht es auch mit *
+            //[assembly: AssemblyVersion("1.0.*")]
+            // diese sternchen macht für jedes Erstellen vom Programm eine neue Versionsnummer hinterlegen sodass es immer nachverfolgbar ist
+            // damit kann man eine liste selbst schreiben für welche Version  und Status kriegen.
+
+
+
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
             Console.ReadKey();
         }
