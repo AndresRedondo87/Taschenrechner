@@ -6,48 +6,45 @@ USER STORIES Taschenrechner Anforderungen
 
 
 -------------------------------------------
-User Story vorlage: als <Rolle/Anwendertyp> mÃ¶chte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
+User Story vorlage: als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
 
 --Erst die Rolle bzw. Anwendertypen feststellen (Benutzer, Administrator, Servicetechniker...) 
 --Dann Ziel/Wunsch/Funktion, was wir implementieren wollen.
 -- und Warum wollen wir es implementieren. Das kann hilfreich seinn beim mehrere Aufgaben.
 
 Titel: Titel
-Story: Als <Rolle/Anwendertyp> mÃ¶chte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
+Story: Als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
 Akzeptanzkriterien:
-	-Mussen erfÃ¼llt werden.
+	-Mussen erfüllt werden.
 	
 	
 	
 Erste Beispiel (2x Stories) - Iteration #1:	
 	
 Titel: Addieren
-Story:Als Benutzer mÃ¶chte ich zwei Zahlen eingeben, um deren Summe berechnen zu lassen
+Story:Als Benutzer möchte ich zwei Zahlen eingeben, um deren Summe berechnen zu lassen
 Akzeptanzkriterien:
-	-Zahlen zwischen 0 und 10 kÃ¶nnen addiert werden.
-	[- erweiterung als Beispiel: Zahlen in HEX eingeben kÃ¶nnen]
+	-Zahlen zwischen 0 und 10 können addiert werden.
+	[- erweiterung als Beispiel: Zahlen in HEX eingeben können]
 Status:
 	-Implementiert
 	-Getestet
 	-Erledigt
 
 Titel: Starten
-Story: Als Benutzer mÃ¶chte ich den Taschenrechner schnell aufrufen kÃ¶nnen, um mein Resultat schnell zu bekommen
+Story: Als Benutzer möchte ich den Taschenrechner schnell aufrufen können, um mein Resultat schnell zu bekommen
 Akzeptanzkriterien:
 	-Die Anwendung wird innerhalb von 2 Sekunden auf einem Rechner gestartet
-	-Die Anwendung lÃ¤uft auf einem Rechner mit Windows 10
+	-Die Anwendung läuft auf einem Rechner mit Windows 10
 
 ------------------------------------------------
 
 Titel: Addieren mit Gleitkommazahlen (unter Iteration1)
-Story: Als Benutzer mÃ¶chte ich mit gleitkommazahlen addieren zu kÃ¶nnen.
+Story: Als Benutzer möchte ich mit gleitkommazahlen addieren zu können.
 Akzeptanzkriterien:
-	-Ganzzahlen kÃ¶nnen addiert werden(zwischen -10.0 und 100.0).
+	-Ganzzahlen können addiert werden(zwischen -10.0 und 100.0).
 Status:
 	-Implementiert
 	-Getestet
 	-Erledigt
 	
-
-
-
