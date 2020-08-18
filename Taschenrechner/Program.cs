@@ -162,7 +162,13 @@ namespace Taschenrechner_Iteration_1
             // Damit muss mann sehr VORSICHTIG sein, da diese Aenderungen werden komplett geloescht und nicht mehr nachzuholen.
 
 
-
+            // Video 40 Die Versionhistorie mit Visualstudio und Git
+            // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann View History (oder Verlauf anzeigen)
+            // damit sieht man wer und wann die dateien geaendert worden sind, da kann man auch die vergleiche aufrufen.
+            // kann man auch zwei versionen darunter auswaehlen und vergleichen.
+            // Sehr grafisch wird es beim Team Explorer, anstatt die Aenderungen Menu, der Branches (bzw (Verzweigungen) auszuwaehlen
+            // dann rechte maus auf die Master zum beispiel,dann View History und es zeigt uns die ganze Branches und die entsprechenden Kommentare.
+            // da kann man auch CommitDetails anzeigen auswaehlen und es zeigt in der Team Explorer alle die Dateien die geaendert worden sind.
 
 
 
