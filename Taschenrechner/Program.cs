@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Taschenrechner_Iteration_1
+namespace Taschenrechner_AR
 {
     /// <summary>
     /// Taschenrechner: zwei Zahlen eingeben, um deren Summe berechnen zu lassen
@@ -169,6 +169,18 @@ namespace Taschenrechner_Iteration_1
             // Sehr grafisch wird es beim Team Explorer, anstatt die Aenderungen Menu, der Branches (bzw (Verzweigungen) auszuwaehlen
             // dann rechte maus auf die Master zum beispiel,dann View History und es zeigt uns die ganze Branches und die entsprechenden Kommentare.
             // da kann man auch CommitDetails anzeigen auswaehlen und es zeigt in der Team Explorer alle die Dateien die geaendert worden sind.
+
+
+            // Video 42 Verwende keine Versionbezeichnung im Namen
+            // Projekt umbenennen, dafuer im Projektmappen-Explorer aendern:
+                //Projektmappe
+                //Projektdatei 
+                //Namespace 
+                //Auch wichtig ist in die Eigenschaften die ausfuehrbare Datei Name und Standardnamespace auch zu aendern.
+                //Asemblyname
+                //Standardnamespace
+                //(der letzte ist wichtig fuer die weiterentwicklung
+                // dannach immer wieder erstellen und pruefen dass alles ok ist.
 
 
 
