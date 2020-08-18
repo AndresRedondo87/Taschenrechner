@@ -37,11 +37,16 @@ Akzeptanzkriterien:
 	-Die Anwendung wird innerhalb von 2 Sekunden auf einem Rechner gestartet
 	-Die Anwendung läuft auf einem Rechner mit Windows 10
 
-Titel: Addieren mit gleitkommazahlen
+------------------------------------------------
+
+Titel: Addieren mit Gleitkommazahlen (unter Iteration1)
 Story: Als Benutzer möchte ich mit gleitkommazahlen addieren zu können.
 Akzeptanzkriterien:
-	-Die beide Eingaben können nachkommastellen haben.
-	-Die Summe kann nachkommastellen haben und darstellen.
+	-Ganzzahlen können addiert werden(zwischen -10.0 und 100.0).
+Status:
+	-Implementiert
+	-Getestet
+	-Erledigt
 	
 
 
