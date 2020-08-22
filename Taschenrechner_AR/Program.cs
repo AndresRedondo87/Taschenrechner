@@ -252,5 +252,7 @@ namespace Taschenrechner_AR
             double summe = ersterSummand + zweiterSummand;
             return summe;
         }
+
+        //Video 51 - Versionsverwaltung nicht vergesen, Immer commit und push!!
     }
 }
