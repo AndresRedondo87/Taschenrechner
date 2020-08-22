@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Taschenrechner_AR
 {
     /// <summary>
-    /// Taschenrechner: zwei Zahlen eingeben, um deren Summe berechnen zu lassen
+    /// Taschenrechner: zwei Zahlen eingeben, um deren Summe/Differenz/... berechnen zu lassen
     /// </summary>
     class Program
     {
@@ -44,10 +44,8 @@ namespace Taschenrechner_AR
             //                      ERST DIE AUSGABEN, DANN DIE EINGABE
             **/
 
-            Console.WriteLine("****TASCHENRECHNER****");
-
+            //User Story "Addieren":
             Console.WriteLine("Geben Sie bitte ein ersten Summanden ein:");
-
             string ersterSummand = Console.ReadLine();
             /** = is der Zuweisungsoperator
             //nicht mit == verwechseln, das ist genau gleich Vergleichsoperator
@@ -151,10 +149,14 @@ namespace Taschenrechner_AR
             //Korrigiert nach Lehrer Version: double verwenden:
             // wird nur komma als komma annerkannt, englische VS deutsche Einstellungen fuer zahlen sind.
             **/
-
+            //Wandel Text in Gleitkommazahlen
             double ersterSummandAlsZahl = Convert.ToDouble(ersterSummand);
             double zweiterSummandAlsZahl = Convert.ToDouble(zweiterSummand);
+
+            //Berechnung Ausfuehren
             double summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
+
+            //Ausgabe
             Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
             /**
             //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
@@ -225,10 +227,21 @@ namespace Taschenrechner_AR
             // das aufschreiben in der... Versionsverwaltung auftragen.
             // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
             **/
-
-
-            Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
-            Console.ReadKey();
+            WarteAufBenutzerEingabe();
         }
+
+        /// <summary>
+        /// Aussagekraeftigen Methoden Abstrahieren
+        /// Ab Video 49 Einfuehrung in Methoden - wir haben schon welchen erstellt und verwendet
+        /// Damit sollte alles lesbarer.
+        /// Methoden sind container für Quellcode um Befehle logischer zu trennen.
+        /// Kernidee ist die unnoetige Sachen/Befehle aus der Hauptmethode zu trennen und damit Struktirieren und abstrahieren.
+        /// </summary>
+        static void WarteAufBenutzerEingabe()
+        {
+            Console.WriteLine("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+            Console.ReadLine();
+        }
+
     }
 }
