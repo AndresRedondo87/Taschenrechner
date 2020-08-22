@@ -48,12 +48,13 @@ namespace Taschenrechner_AR
             /// Video 53 Verwenden bzw. verwenden einer Methode
             string ersterSummand = HoleSumanden("Bitte geben Sie den ersten Summanden ein:");
             string zweiterSummand = HoleSumanden("Bitte geben Sie den zweiter Summanden ein:");
-            // Video 54 Methoden ausfuehren lerne den Debugger kennen
+            /** Video 54 Methoden ausfuehren lerne den Debugger kennen
             // BREAKPOINT Bzw. Haltepunkte verwenden, Fenster Auto und Lokal fuer Variablen und ihre Werte... 
             // Lokal variablen werden in rot markiert wenn sie gerade geandert worden sind. Hilfreich zum Fehlersuche, auch in return.
             // Einzelschritt unter Debuggen / F11 druecken / Button in toolbars oben um ein Schritt bzw. Anweisung nach vorne gehen, dann stoppt es wieder.
             // In Aufrufliste koennen wir sehen, der Breakpoint zeigt wo es ist, gelbe Pfeil zeigt wo der Schritt gerade ist, z.B. HoleSummanden in diesem Fall
             // Prozedurschritte unter Debuggen / F10 druecken / Button in toolbars oben um ein ProzedurSchritt bzw. Anweisungengruppe nach vorne gehen wird hier nicht erklärt.
+            */
 
             /**
             //hier das gleiche mit andere Variablenname
