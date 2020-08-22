@@ -16,6 +16,7 @@ namespace Taschenrechner_AR
     {
         static void Main(string[] args)
         {
+            /**
             //Kommentary infos: dreimal slash und  summary in xml, wird als info für später verwenden
             // es wird für das nachfolgende Konstrukt unten Dokumentation verwendet. 
 
@@ -41,17 +42,21 @@ namespace Taschenrechner_AR
 
             //CONSOLE VERWENDEN: ERST HINWEISE AUSGEBEN UND DANN KAN DER BENUTZER EINGEBEN
             //                      ERST DIE AUSGABEN, DANN DIE EINGABE
+            **/
+
             Console.WriteLine("****TASCHENRECHNER****");
 
             Console.WriteLine("Geben Sie bitte ein ersten Summanden ein:");
 
             string ersterSummand = Console.ReadLine();
-            // = is der Zuweisungsoperator
+            /** = is der Zuweisungsoperator
             //nicht mit == verwechseln, das ist genau gleich Vergleichsoperator
             // Datentyp Variablenname IMMER kleingeschrieben =Zuweisungsoperator und dann der Wert der diese Variable zugewiesen sein soll.
-
+            **/
             Console.WriteLine("Geben Sie bitte ein zweiten Summanden ein:");
             string zweiterSummand = Console.ReadLine();
+            
+            /**
             //hier das gleiche mit andere Variablenname
 
 
@@ -145,11 +150,13 @@ namespace Taschenrechner_AR
 
             //Korrigiert nach Lehrer Version: double verwenden:
             // wird nur komma als komma annerkannt, englische VS deutsche Einstellungen fuer zahlen sind.
+            **/
+
             double ersterSummandAlsZahl = Convert.ToDouble(ersterSummand);
             double zweiterSummandAlsZahl = Convert.ToDouble(zweiterSummand);
             double summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
             Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
-
+            /**
             //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
             //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
             // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann 
@@ -217,7 +224,7 @@ namespace Taschenrechner_AR
             // in diesem Beispielfall: 18.08.2020 15:49 Produktversion 1.0.7535.284878
             // das aufschreiben in der... Versionsverwaltung auftragen.
             // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
-
+            **/
 
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
