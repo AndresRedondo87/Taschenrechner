@@ -2,25 +2,32 @@
 USER STORIES Taschenrechner Anforderungen
 
 
-
-
-
--------------------------------------------
-User Story vorlage: als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
-
---Erst die Rolle bzw. Anwendertypen feststellen (Benutzer, Administrator, Servicetechniker...) 
---Dann Ziel/Wunsch/Funktion, was wir implementieren wollen.
--- und Warum wollen wir es implementieren. Das kann hilfreich seinn beim mehrere Aufgaben.
-
-Titel: Titel
-Story: Als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
+Titel: Softwarestruktur
+Story: Als Entwickler möchte ich  den Quellcode sauber strukturieren, um spaeter einfach  weitere funktionalitaeten hinzufuegen zu können.
 Akzeptanzkriterien:
-	-Mussen erfüllt werden.
-	
-	
-	
-Erste Beispiel (2x Stories) - Iteration #1:	
-	
+	-das Single Level of Abstraction Prinzip (wird spaeter erklaert)wird eingehalten, oder eine Abweichung ist begruendet und dokumentiert	
+Status:
+	-Offen
+
+Titel: Substrahieren
+Story: Als Benutzer möchte ich mit gleitkommazahlen Substrahieren zu können.
+Akzeptanzkriterien:
+	-Gleitkommazahlen können Substrahiert werden(zwischen -10.0 und 100.0).
+Status:
+	-Offen
+
+
+------------------------------------------------
+
+Titel: Addieren mit Gleitkommazahlen (unter Iteration1)
+Story: Als Benutzer möchte ich mit gleitkommazahlen addieren zu können.
+Akzeptanzkriterien:
+	-Gleitkommazahlen können addiert werden(zwischen -10.0 und 100.0).
+Status:
+	-Implementiert
+	-Getestet
+	-Erledigt
+		
 Titel: Addieren
 Story:Als Benutzer möchte ich zwei Zahlen eingeben, um deren Summe berechnen zu lassen
 Akzeptanzkriterien:
@@ -36,15 +43,19 @@ Story: Als Benutzer möchte ich den Taschenrechner schnell aufrufen können, um me
 Akzeptanzkriterien:
 	-Die Anwendung wird innerhalb von 2 Sekunden auf einem Rechner gestartet
 	-Die Anwendung läuft auf einem Rechner mit Windows 10
-
-------------------------------------------------
-
-Titel: Addieren mit Gleitkommazahlen (unter Iteration1)
-Story: Als Benutzer möchte ich mit gleitkommazahlen addieren zu können.
-Akzeptanzkriterien:
-	-Ganzzahlen können addiert werden(zwischen -10.0 und 100.0).
 Status:
 	-Implementiert
 	-Getestet
 	-Erledigt
-	
+
+------------------------------------------------------------
+User Story vorlage: als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
+
+--Erst die Rolle bzw. Anwendertypen feststellen (Benutzer, Administrator, Servicetechniker...) 
+--Dann Ziel/Wunsch/Funktion, was wir implementieren wollen.
+-- und Warum wollen wir es implementieren. Das kann hilfreich seinn beim mehrere Aufgaben.
+
+Titel: Titel
+Story: Als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
+Akzeptanzkriterien:
+	-Mussen erfüllt werden.
