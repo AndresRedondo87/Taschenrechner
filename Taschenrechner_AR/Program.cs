@@ -154,7 +154,7 @@ namespace Taschenrechner_AR
             double zweiterSummandAlsZahl = Convert.ToDouble(zweiterSummand);
 
             //Berechnung Ausfuehren
-            double summeAlsZahl = ersterSummandAlsZahl + zweiterSummandAlsZahl;
+            double summeAlsZahl = Addiere(ersterSummandAlsZahl, zweiterSummandAlsZahl);
 
             //Ausgabe
             Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
@@ -243,5 +243,14 @@ namespace Taschenrechner_AR
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Video 50 Single Level of Abstraction - eine Separate Methode Aufrufen
+        /// Addieren Methode abstrahieren. Aufpassesn auf Variablennamen, VariablenTypen...
+        /// </summary>
+        static double Addiere(double ersterSummand, double zweiterSummand)
+        {
+            double summe = ersterSummand + zweiterSummand;
+            return summe;
+        }
     }
 }
