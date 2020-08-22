@@ -45,15 +45,12 @@ namespace Taschenrechner_AR
             **/
 
             //User Story "Addieren":
-            Console.WriteLine("Geben Sie bitte ein ersten Summanden ein:");
-            string ersterSummand = Console.ReadLine();
-            /** = is der Zuweisungsoperator
-            //nicht mit == verwechseln, das ist genau gleich Vergleichsoperator
-            // Datentyp Variablenname IMMER kleingeschrieben =Zuweisungsoperator und dann der Wert der diese Variable zugewiesen sein soll.
-            **/
-            Console.WriteLine("Geben Sie bitte ein zweiten Summanden ein:");
-            string zweiterSummand = Console.ReadLine();
-            
+            /// Video 53 Verwenden bzw. verwenden einer Methode
+            string ersterSummand = HoleSumanden("Bitte geben Sie den ersten Summanden ein:");
+            string zweiterSummand = HoleSumanden("Bitte geben Sie den zweiter Summanden ein:");
+
+
+
             /**
             //hier das gleiche mit andere Variablenname
 
