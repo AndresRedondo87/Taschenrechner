@@ -7,7 +7,8 @@ Story: Als Entwickler möchte ich  den Quellcode sauber strukturieren, um spaeter
 Akzeptanzkriterien:
 	-das Single Level of Abstraction Prinzip (wird spaeter erklaert)wird eingehalten, oder eine Abweichung ist begruendet und dokumentiert	
 Status:
-	-Offen
+	-Umgesetzt
+	-Erledigt
 
 Titel: Substrahieren
 Story: Als Benutzer möchte ich mit gleitkommazahlen Substrahieren zu können.

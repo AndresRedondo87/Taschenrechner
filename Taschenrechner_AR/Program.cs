@@ -152,6 +152,9 @@ namespace Taschenrechner_AR
             // wird nur komma als komma annerkannt, englische VS deutsche Einstellungen fuer zahlen sind.
             **/
             //Wandel Text in Gleitkommazahlen
+            // Video 55 Zwischenschritt -Softwarestruktur User Story abschliessen
+            // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
+            // Diese "// TODO:" sind immer in die aufgabenliste zu sehen: in Ansicht/Aufgabenliste. nur so, der "TODO:" direkt am Anfang 
             double ersterSummandAlsZahl = Convert.ToDouble(ersterSummand);
             double zweiterSummandAlsZahl = Convert.ToDouble(zweiterSummand);
 
