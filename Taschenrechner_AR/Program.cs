@@ -202,6 +202,22 @@ namespace Taschenrechner_AR
             // diese sternchen macht für jedes Erstellen vom Programm eine neue Versionsnummer hinterlegen sodass es immer nachverfolgbar ist
             // damit kann man eine liste selbst schreiben für welche Version  und Status kriegen.
 
+            //Video 44 unser erstes mini-Release
+            // Eine Iteration sicher zu stellen und fuer zukunftige nachverfolgungen sauberer gespeichert zu haben.
+            // eine Release zu machen ( .exe und Dokumentation getrennt kriegen.
+            // um Tags zu haben.
+            // Wir machen eine neue  "Meilesteine" Ordner in unsere Projekt mit Unterordner "Iteration 1" (1 fuer dieses Beispiel)
+            // da werde wir packen unsere .exe und ein Release Note .txt
+            //  da Beschreiben wir was es hat und kann (formell fuer ofizielle Releases und informell fuer internen) aber sollte schnell gehen
+            //  TAG     ART     STATUS      FUNKTION
+            // dann der .exe holen UND die .exe.config und .pdb (eingentlich alle die Dateien mit den gleiche Name die wir generiert haben...)
+            // Manchmal gibtes auch ein setup oder sowas.
+            // beispiel unter Meilesteine/Iteration1
+            // dann alles komprimieren in zip und dazu zurueck in unsere .exe suchen (projekt/obj/Debug um die generierte Versionesnummer und Datum aufzuschreiben.
+            // in diesem Beispielfall: 18.08.2020 15:49 Produktversion 1.0.7535.284878
+            // das aufschreiben in der... Versionsverwaltung auftragen.
+            // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
+
 
 
             Console.WriteLine("\n\nDrücken Sie eine beliebige Taste zum beenden");
