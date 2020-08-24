@@ -14,7 +14,7 @@ namespace Taschenrechner_AR
     /// </summary>
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             /**
             //Kommentary infos: dreimal slash und  summary in xml, wird als info für später verwenden
@@ -44,7 +44,7 @@ namespace Taschenrechner_AR
             //                      ERST DIE AUSGABEN, DANN DIE EINGABE
             **/
 
-            //User Story "Addieren":
+            ///User Story "Addieren":
             /// Video 53 Verwenden bzw. verwenden einer Methode
             string ersteZahlAlsString = HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein: ");
             string zweiteZahlAlsString = HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
@@ -70,7 +70,6 @@ namespace Taschenrechner_AR
             while ((operation != "+") && (operation != "-") && (operation != "*") && (operation != ".") && (operation != "/"))
                     {
                 operation = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, /, *): ");
-                //TODO: noch * und / offen!
             }
 
             /**
@@ -168,10 +167,10 @@ namespace Taschenrechner_AR
             //Korrigiert nach Lehrer Version: double verwenden:
             // wird nur komma als komma annerkannt, englische VS deutsche Einstellungen fuer zahlen sind.
             **/
-            //Wandel Text in Gleitkommazahlen
-            // Video 55 Zwischenschritt -Softwarestruktur User Story abschliessen
-            // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
-            // Diese "// TODO:" sind immer in die aufgabenliste zu sehen: in Ansicht/Aufgabenliste. nur so, der "TODO:" direkt am Anfang 
+            ///Wandel Text in Gleitkommazahlen
+            /// Video 55 Zwischenschritt -Softwarestruktur User Story abschliessen
+            /// TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
+            /// Diese "// TODO:" sind immer in die aufgabenliste zu sehen: in Ansicht/Aufgabenliste. nur so, der "TODO:" direkt am Anfang 
             double ersterZahl = Convert.ToDouble(ersteZahlAlsString);
             double zweiterZahl = Convert.ToDouble(zweiteZahlAlsString);
             /** Video 57  Benutzerinteraktion - eine Methode fuer alles. Variablen Umbenennen
@@ -180,16 +179,18 @@ namespace Taschenrechner_AR
 
             //Berechnung Ausfuehren
             double ergebniss = BerechnungAusfuehren(ersterZahl, zweiterZahl, operation);
-            //double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
-            //double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
-            // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+            ///double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
+            ///double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
+            /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+            /// Video 64 Zusatzaufgabe - Aufraeumen in Main - Berechnungbekommt eine eigene Methode.
+            /// Eigentlich hatte es schon lange separiert.
+            /// die Berechnung und die Ausgabe zu trennen habe ich auch schon getrennt.
 
 
-
-            //Ausgabe
-            //Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
-            //Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
-            // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+            ///Ausgabe
+            ///Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
+            ///Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
+            /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
             /** Video 58-59 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
              * Ergebniss Darstellen muss auch geändert werden*/
             Console.WriteLine("\nDas Resultat ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
@@ -267,17 +268,17 @@ namespace Taschenrechner_AR
             /// Video 60 Vergleichoperatoren und der Datentyp bool (boolean)
             /// Addendum um bools zu testen (gleiche und nicht gleiche Zahlen (==, !=)
             /// es gibt auch <,<=,>,>=... kenne ich schon
-            bool sindGleich = true;
-            sindGleich = IstGleich(ersterZahl, zweiterZahl);
-            Console.WriteLine("die Zahlen  {0}  und  {1} sind gleich?:  {2} ", ersterZahl, zweiterZahl, sindGleich);
-            if (sindGleich)
-            {
-                Console.WriteLine("die Zahlen sind gleich!!");
-            }
-            else if (!sindGleich)   //eingentlic unnoetig aber gut
-            {
-                Console.WriteLine("die Zahlen sind NICHT gleich!!");
-            }
+            ///bool sindGleich = true;
+            ///sindGleich = IstGleich(ersterZahl, zweiterZahl);
+            ///Console.WriteLine("die Zahlen  {0}  und  {1} sind gleich?:  {2} ", ersterZahl, zweiterZahl, sindGleich);
+            ///if (sindGleich)
+            ///{
+            ///    Console.WriteLine("die Zahlen sind gleich!!");
+            ///}
+            ///else if (!sindGleich)   //eingentlic unnoetig aber gut
+            ///{
+            ///    Console.WriteLine("die Zahlen sind NICHT gleich!!");
+            ///}
 
 
             HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
@@ -285,11 +286,10 @@ namespace Taschenrechner_AR
 
 
         /// Video 60 Vergleichoperatoren und der Datentyp bool (boolean)
-        /// 
-        static bool IstGleich(double a, double b)
-        {
-            return a == b;
-        }
+        ///static bool IstGleich(double a, double b)
+        ///{
+        ///    return a == b;
+        ///}
 
         /// <summary>
         /// Video 58 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
@@ -314,8 +314,8 @@ namespace Taschenrechner_AR
                         ergebniss = Substrahiere(ersterZahl, zweiterZahl);
                         break;
                     }
-                // zwei cases direkt nacheinander bedeutet sie machen einfach genau das gleiche.
-                //hier erklaert mit * oder . zur multiplikation(sollte auch in Operatoren Eingabe betrachtet sein!)
+                /// zwei cases direkt nacheinander bedeutet sie machen einfach genau das gleiche.
+                ///hier erklaert mit * oder . zur multiplikation(sollte auch in Operatoren Eingabe betrachtet sein!)
                 case ".":
                 case "*":
                     {
@@ -361,7 +361,7 @@ namespace Taschenrechner_AR
             return summe;
         }
 
-        //Video 51 - Versionsverwaltung nicht vergesen, Immer commit und push!!
+        ///Video 51 - Versionsverwaltung nicht vergesen, Immer commit und push!!
 
         /// <summary>
         /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
