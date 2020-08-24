@@ -283,13 +283,11 @@ namespace Taschenrechner_AR
             }
             else if (operation == "*")
             {
-                ergebniss = 0;
-                Console.WriteLine("\nDie Operation ist noch nicht verfügbar");
+                ergebniss = Multipliziere(ersterZahl, zweiterZahl);
             }
             else if (operation == "/")
             {
-                ergebniss = 0;
-                Console.WriteLine("\nDie Operation ist noch nicht verfügbar");
+                ergebniss = Teile(ersterZahl, zweiterZahl);
             }
 
             return ergebniss;
@@ -333,6 +331,36 @@ namespace Taschenrechner_AR
         /** Video 57  Benutzerinteraktion - eine Methode fuer alles. Variablen Umbenennen
          *  Dafuer rechrtemaus auf Methode und Umbenennen auswählen, dann sollte es automatisch rechts eine Dialog mit Optionen und zeigt ein Zaehler mit
          *  wieviele Verweise werden damit automatisch auch geaendert, in diesem Fall 3.  auch fuer minuend und substrahent */
+
+        /// <summary>
+        /// ERWEITERT - erstelle eine Methode die Zwei Zahlen multipliziert
+        /// Multiplizieren Methode abstrahieren. Aufpassesn auf Variablennamen, VariablenTypen...
+        /// </summary>
+        static double Multipliziere(double ersterFaktor, double zweiterFaktor)
+        {
+            double produkt = ersterFaktor * zweiterFaktor;
+            return produkt;
+        }
+
+        /// <summary>
+        /// ERWEITERT - erstelle eine Methode die Zwei Zahlen teilt
+        /// Teilen Methode abstrahieren. Aufpassesn auf Variablennamen, VariablenTypen...
+        /// </summary>
+        static double Teile(double dividend, double divisor)
+        {
+            if (divisor != 0)
+            {
+                double quotient = dividend / divisor;
+                return quotient;
+            }
+            else
+            {
+                Console.WriteLine("\nERROR, DARF MAN NIE DURCH ZERO TEILEN ERGEBNISS = 0 NICHT REAL!!");
+                return 0;
+
+            }
+        }
+
 
         /// <summary>
         /// Methoden Definieren in 7 Schritten
