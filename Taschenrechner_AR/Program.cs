@@ -46,8 +46,16 @@ namespace Taschenrechner_AR
 
             //User Story "Addieren":
             /// Video 53 Verwenden bzw. verwenden einer Methode
-            string ersterSummand = HoleSumanden("Bitte geben Sie den ersten Summanden ein: ");
-            string zweiterSummand = HoleSumanden("Bitte geben Sie den zweiter Summanden ein: ");
+            string ersteZahlAlsString = HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein: ");
+            string zweiteZahlAlsString = HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
+            /** Video 57  Benutzerinteraktion - eine Methode fuer alles
+             *  jetzt wollen wir die HoleSumanden Methode Aendern sodass es auch fuer andere Kalkulationen gilt.
+             *  Dafuer rechrtemaus auf Methode und Umbenennen auswählen, dann sollte es automatisch rechts eine Dialog mit Optionen und zeigt ein Zaehler mit
+             *  wieviele Verweise werden damit automatisch auch geaendert, in diesem Fall 3.
+             *  Danach immer wieder Pruefen und bestaetigen und das altere Name dursuchen lassen.
+             *  Das gleiche machen wir mit den Variablen ersterSummand und zweiterSummand. (beide nur zweimal benutzt)
+             *  Und auch fuer ersterSummandAlsZahl und zweiterSummandAlsZahl
+             */
             /** Video 54 Methoden ausfuehren lerne den Debugger kennen
             // BREAKPOINT Bzw. Haltepunkte verwenden, Fenster Auto und Lokal fuer Variablen und ihre Werte... 
             // Lokal variablen werden in rot markiert wenn sie gerade geandert worden sind. Hilfreich zum Fehlersuche, auch in return.
@@ -155,17 +163,21 @@ namespace Taschenrechner_AR
             // Video 55 Zwischenschritt -Softwarestruktur User Story abschliessen
             // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
             // Diese "// TODO:" sind immer in die aufgabenliste zu sehen: in Ansicht/Aufgabenliste. nur so, der "TODO:" direkt am Anfang 
-            double ersterSummandAlsZahl = Convert.ToDouble(ersterSummand);
-            double zweiterSummandAlsZahl = Convert.ToDouble(zweiterSummand);
+            double ersterZahl = Convert.ToDouble(ersteZahlAlsString);
+            double zweiterZahl = Convert.ToDouble(zweiteZahlAlsString);
+            /** Video 57  Benutzerinteraktion - eine Methode fuer alles. Variablen Umbenennen
+             *  Dafuer rechrtemaus auf Methode und Umbenennen auswählen, dann sollte es automatisch rechts eine Dialog mit Optionen und zeigt ein Zaehler mit
+             *  wieviele Verweise werden damit automatisch auch geaendert, in diesem Fall 3.  auch fuer ersterSummandAlsZahl und zweiterSummandAlsZahl */
 
             //Berechnung Ausfuehren
-            double summeAlsZahl = Addiere(ersterSummandAlsZahl, zweiterSummandAlsZahl);
-            double differenzAlsZahl = Substrahiere(ersterSummandAlsZahl, zweiterSummandAlsZahl);
+            double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
+            double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
             // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
 
+
             //Ausgabe
-            Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
-            Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, differenzAlsZahl);
+            Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, summeAlsZahl);
+            Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, differenzAlsZahl);
             // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
 
 
@@ -238,21 +250,22 @@ namespace Taschenrechner_AR
             // das aufschreiben in der... Versionsverwaltung auftragen.
             // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
             **/
-            WarteAufBenutzerEingabe();
+            HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
         }
 
-        /// <summary>
-        /// Aussagekraeftigen Methoden Abstrahieren
-        /// Ab Video 49 Einfuehrung in Methoden - wir haben schon welchen erstellt und verwendet
-        /// Damit sollte alles lesbarer.
-        /// Methoden sind container für Quellcode um Befehle logischer zu trennen.
-        /// Kernidee ist die unnoetige Sachen/Befehle aus der Hauptmethode zu trennen und damit Struktirieren und abstrahieren.
-        /// </summary>
-        static void WarteAufBenutzerEingabe()
-        {
-            Console.WriteLine("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
-            Console.ReadLine();
-        }
+        /**Video 57  Benutzerinteraktion - eine Methode fuer alles: WarteAufBenutzerEingabe Methode redundant mit HoleBenutzerEingabe,, daher kann es geloescht bzw rauskommentiert werden
+        ///// <summary>
+        ///// Aussagekraeftigen Methoden Abstrahieren
+        ///// Ab Video 49 Einfuehrung in Methoden - wir haben schon welchen erstellt und verwendet
+        ///// Damit sollte alles lesbarer.
+        ///// Methoden sind container für Quellcode um Befehle logischer zu trennen.
+        ///// Kernidee ist die unnoetige Sachen/Befehle aus der Hauptmethode zu trennen und damit Struktirieren und abstrahieren.
+        ///// </summary>
+        //static void WarteAufBenutzerEingabe()
+        //{
+        //    Console.WriteLine("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+        //    Console.ReadLine();
+        //}   */
 
         /// <summary>
         /// Video 50 Single Level of Abstraction - eine Separate Methode Aufrufen
@@ -270,11 +283,14 @@ namespace Taschenrechner_AR
         /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
         /// Substrahieren Methode abstrahieren. Aufpassesn auf Variablennamen, VariablenTypen...
         /// </summary>
-        static double Substrahiere(double ersterSummand, double zweiterSummand)
+        static double Substrahiere(double minuend, double substrahent)
         {
-            double differenz = ersterSummand - zweiterSummand;
+            double differenz = minuend - substrahent;
             return differenz;
         }
+        /** Video 57  Benutzerinteraktion - eine Methode fuer alles. Variablen Umbenennen
+         *  Dafuer rechrtemaus auf Methode und Umbenennen auswählen, dann sollte es automatisch rechts eine Dialog mit Optionen und zeigt ein Zaehler mit
+         *  wieviele Verweise werden damit automatisch auch geaendert, in diesem Fall 3.  auch fuer minuend und substrahent */
 
         /// <summary>
         /// Methoden Definieren in 7 Schritten
@@ -292,7 +308,7 @@ namespace Taschenrechner_AR
         /// Methoden können oft verbessert werden: von HoleErstenSumanden erst kann man den ausgabeText als Parameter eingeben, so ist es viel flexibler.
         /// Dann kann es auch zu HoleSumanden werden um nich nur fuers erste sondern fuer viele summanden.
 
-        static string HoleSumanden(string ausgabeText)
+        static string HoleBenutzerEingabe(string ausgabeText)
         {
             Console.Write(ausgabeText);
             string Summand = Console.ReadLine();
@@ -301,54 +317,54 @@ namespace Taschenrechner_AR
         }
 
 
-//BEISPIEL TEXT BZW HAUPT INFOS
-/*namespace Methoden
-{
-    /// <summary>
-    /// Zeigt dir die wichtigsten Grundlagen (insbesondere Begriffe) rund um das
-    /// Thema Methoden. Außerdem werden von hier alle Beispiele zum Thema Methoden
-    /// aufgerufen.
-    /// </summary>
-    class Einfuehrung
-    {
-        // Bei der Definition einer Methode (auch Methodendefinition genannt) geht es darum,
-        // das du den Quellcode schreibst der sagt was zutun ist, wenn diese Methode ausgeführt
-        // wird. Im folgenden ein kurzer Überblick über die Bestandteile einer Methode:
-
-        // ZUGRIFFSMODIFIZIERER (access modifier): Definiert von wo die Methode erreichbar ist.
-        // Häufig verwendet sind private - Methode kann nur innerhalb der Klasse verwendet werden
-        // und public - Methode kann von jeglicher Klasse verwendet werden.
-        // Mögliche Werte sind: public, private, protected und internal für Details siehe MSDN
-        // https://msdn.microsoft.com/de-de/library/ms173121.aspx
-
-        // PARAMETER: Jeder Methode kann optional ein oder mehrere Parameter übergeben werden.
-        // Jeder Parameter besteht aus einem Datentypen und einem Namen. Wenn eine Methode mehrere
-        // Parameter hat, dann werden diese mit Komma getrennt.
-
-        // Optional können zwischen Zugrifssmodifizierer und Datentyp des Rückgabewerts noch die
-        // Schlüsselwörter STATIC und ASYNC verwendet werden. Dies wird in separaten Projekten
-        // besprochen (z.B. SchlüsselwortStatic)
-
-        // Aufbau:
-        // Zugriffsmodifizierer (engl.: access modifier or method visibility)
-        //  |
-        //  |   Datentyp des Rückgabewerts (engl.: datatype of return value)
-        //  |    |
-        //  |    |               Methodenname in CamelCase-Notation
-        //  |    |                   |
-        //  |    |                   |                            Datentyp vom ersten Parameter
-        //  |    |                   |                             |
-        //  |    |                   |                             |      Name des ersten Parameters
-        //  |    |                   |                             |        |
-        public void MethodeOhneRueckgabewertAberMitEinemParameter(int parameterName) // <- Methodenkopf
+        //BEISPIEL TEXT BZW HAUPT INFOS
+        /*namespace Methoden
         {
-            // Dies ist der Methodenrumpf. Er beginnt mit einer geöffneten geschweiften Klammer
-            // und muss mit einer geschlossenen geschweiften Klammer beendet werden.
-            throw new NotImplementedException("Methode ist nur als Beispiel gedacht!");
+            /// <summary>
+            /// Zeigt dir die wichtigsten Grundlagen (insbesondere Begriffe) rund um das
+            /// Thema Methoden. Außerdem werden von hier alle Beispiele zum Thema Methoden
+            /// aufgerufen.
+            /// </summary>
+            class Einfuehrung
+            {
+                // Bei der Definition einer Methode (auch Methodendefinition genannt) geht es darum,
+                // das du den Quellcode schreibst der sagt was zutun ist, wenn diese Methode ausgeführt
+                // wird. Im folgenden ein kurzer Überblick über die Bestandteile einer Methode:
 
-            // Nur wenn die Methode keinen Wert zurück gibt (also der Datentyp des Rückgabewertes
-            // void ist), kann auf das "return" am Ende der Methode verzichtet werden.
-        }
-*/
+                // ZUGRIFFSMODIFIZIERER (access modifier): Definiert von wo die Methode erreichbar ist.
+                // Häufig verwendet sind private - Methode kann nur innerhalb der Klasse verwendet werden
+                // und public - Methode kann von jeglicher Klasse verwendet werden.
+                // Mögliche Werte sind: public, private, protected und internal für Details siehe MSDN
+                // https://msdn.microsoft.com/de-de/library/ms173121.aspx
+
+                // PARAMETER: Jeder Methode kann optional ein oder mehrere Parameter übergeben werden.
+                // Jeder Parameter besteht aus einem Datentypen und einem Namen. Wenn eine Methode mehrere
+                // Parameter hat, dann werden diese mit Komma getrennt.
+
+                // Optional können zwischen Zugrifssmodifizierer und Datentyp des Rückgabewerts noch die
+                // Schlüsselwörter STATIC und ASYNC verwendet werden. Dies wird in separaten Projekten
+                // besprochen (z.B. SchlüsselwortStatic)
+
+                // Aufbau:
+                // Zugriffsmodifizierer (engl.: access modifier or method visibility)
+                //  |
+                //  |   Datentyp des Rückgabewerts (engl.: datatype of return value)
+                //  |    |
+                //  |    |               Methodenname in CamelCase-Notation
+                //  |    |                   |
+                //  |    |                   |                            Datentyp vom ersten Parameter
+                //  |    |                   |                             |
+                //  |    |                   |                             |      Name des ersten Parameters
+                //  |    |                   |                             |        |
+                public void MethodeOhneRueckgabewertAberMitEinemParameter(int parameterName) // <- Methodenkopf
+                {
+                    // Dies ist der Methodenrumpf. Er beginnt mit einer geöffneten geschweiften Klammer
+                    // und muss mit einer geschlossenen geschweiften Klammer beendet werden.
+                    throw new NotImplementedException("Methode ist nur als Beispiel gedacht!");
+
+                    // Nur wenn die Methode keinen Wert zurück gibt (also der Datentyp des Rückgabewertes
+                    // void ist), kann auf das "return" am Ende der Methode verzichtet werden.
+                }
+        */
     }
 }
