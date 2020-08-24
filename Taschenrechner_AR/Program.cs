@@ -262,7 +262,33 @@ namespace Taschenrechner_AR
             // das aufschreiben in der... Versionsverwaltung auftragen.
             // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
             **/
+
+
+            /// Video 60 Vergleichoperatoren und der Datentyp bool (boolean)
+            /// Addendum um bools zu testen (gleiche und nicht gleiche Zahlen (==, !=)
+            /// es gibt auch <,<=,>,>=... kenne ich schon
+            bool sindGleich = true;
+            sindGleich = IstGleich(ersterZahl, zweiterZahl);
+            Console.WriteLine("die Zahlen  {0}  und  {1} sind gleich?:  {2} ", ersterZahl, zweiterZahl, sindGleich);
+            if (sindGleich)
+            {
+                Console.WriteLine("die Zahlen sind gleich!!");
+            }
+            else if (!sindGleich)   //eingentlic unnoetig aber gut
+            {
+                Console.WriteLine("die Zahlen sind NICHT gleich!!");
+            }
+
+
             HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+        }
+
+
+        /// Video 60 Vergleichoperatoren und der Datentyp bool (boolean)
+        /// 
+        static bool IstGleich(double a, double b)
+        {
+            return a == b;
         }
 
         /// <summary>
