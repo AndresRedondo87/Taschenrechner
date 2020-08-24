@@ -47,7 +47,8 @@ namespace Taschenrechner_AR
             ///User Story "Addieren":
             /// Video 53 Verwenden bzw. verwenden einer Methode
             string ersteZahlAlsString = HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein: ");
-            string zweiteZahlAlsString = HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
+
+
             /** Video 57  Benutzerinteraktion - eine Methode fuer alles
              *  jetzt wollen wir die HoleSumanden Methode Aendern sodass es auch fuer andere Kalkulationen gilt.
              *  Dafuer rechrtemaus auf Methode und Umbenennen auswählen, dann sollte es automatisch rechts eine Dialog mit Optionen und zeigt ein Zaehler mit
@@ -68,9 +69,12 @@ namespace Taschenrechner_AR
              EXTRA while loop bis gueltige Operator eingegeben wird*/
             string operation= "0";
             while ((operation != "+") && (operation != "-") && (operation != "*") && (operation != ".") && (operation != "/"))
-                    {
-                operation = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, /, *): ");
+            {
+                operation = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, ., *, /): ");
             }
+
+            /// Video 64 verbesserung: Erst ein Zahl Eingabe, dann Operation und dann Zweiter Zahl, ich finde es so logischer.
+            string zweiteZahlAlsString = HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
 
             /**
             //hier das gleiche mit andere Variablenname
@@ -171,98 +175,110 @@ namespace Taschenrechner_AR
             /// Video 55 Zwischenschritt -Softwarestruktur User Story abschliessen
             /// TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
             /// Diese "// TODO:" sind immer in die aufgabenliste zu sehen: in Ansicht/Aufgabenliste. nur so, der "TODO:" direkt am Anfang 
-            double ersterZahl = Convert.ToDouble(ersteZahlAlsString);
-            double zweiterZahl = Convert.ToDouble(zweiteZahlAlsString);
+            double ersterZahl = VonStringNachDouble(ersteZahlAlsString);
+            double zweiterZahl = VonStringNachDouble(zweiteZahlAlsString);
             /** Video 57  Benutzerinteraktion - eine Methode fuer alles. Variablen Umbenennen
              *  Dafuer rechrtemaus auf Methode und Umbenennen auswählen, dann sollte es automatisch rechts eine Dialog mit Optionen und zeigt ein Zaehler mit
              *  wieviele Verweise werden damit automatisch auch geaendert, in diesem Fall 3.  auch fuer ersterSummandAlsZahl und zweiterSummandAlsZahl */
 
-            //Berechnung Ausfuehren
-            double ergebniss = BerechnungAusfuehren(ersterZahl, zweiterZahl, operation);
-            ///double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
-            ///double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
-            /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
-            /// Video 64 Zusatzaufgabe - Aufraeumen in Main - Berechnungbekommt eine eigene Methode.
-            /// Eigentlich hatte es schon lange separiert.
-            /// die Berechnung und die Ausgabe zu trennen habe ich auch schon getrennt.
+
+            /// Video 64 verbesserung: teilen durch zero nicht erlaubt. bool variable eigentlich nicht erforderlich.
+            bool youShallNotDivideByZero = ((operation == "/") && (zweiterZahl == 0));
+            if(youShallNotDivideByZero)
+            {
+                Console.WriteLine("YOU SHALL NOT DIVIDE BY ZERO");
+                Console.WriteLine("ALSO NEVER GOOGLE 'google'");
+            }
+            else
+            {
+                //Berechnung Ausfuehren
+                double ergebniss = BerechnungAusfuehren(ersterZahl, zweiterZahl, operation);
+                ///double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
+                ///double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
+                /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+                /// Video 64 Zusatzaufgabe - Aufraeumen in Main - Berechnungbekommt eine eigene Methode.
+                /// Eigentlich hatte es schon lange separiert.
+                /// die Berechnung und die Ausgabe zu trennen habe ich auch schon getrennt.
 
 
-            ///Ausgabe
-            ///Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
-            ///Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
-            /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
-            /** Video 58-59 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
-             * Ergebniss Darstellen muss auch geändert werden*/
-            Console.WriteLine("\nDas Resultat ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
-            /**
-            //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
-            //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
-            // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann 
-            // "mit ungeaenderten vergleichen...
-            // das zeigt uns die änderungen die wir noch nicht commited haben, rot heisst geloescht, gruen hinzugefuegt. 
-            // Leichte farben fuer die ganze Linien und starke fuer den Text ganz genau.
+                ///Ausgabe
+                ///Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
+                ///Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
+                /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+                /** Video 58-59 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
+                 * Ergebniss Darstellen muss auch geändert werden*/
+                Console.WriteLine("\nDas Resultat ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
+                /**
+                //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
+                //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
+                // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann 
+                // "mit ungeaenderten vergleichen...
+                // das zeigt uns die änderungen die wir noch nicht commited haben, rot heisst geloescht, gruen hinzugefuegt. 
+                // Leichte farben fuer die ganze Linien und starke fuer den Text ganz genau.
 
-            // Um Aenderungen zurueck zu nehmen, kann mann die so erledigen:
-            // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann Undo Changes.
-            // Damit muss mann sehr VORSICHTIG sein, da diese Aenderungen werden komplett geloescht und nicht mehr nachzuholen.
-
-
-            // Video 40 Die Versionhistorie mit Visualstudio und Git
-            // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann View History (oder Verlauf anzeigen)
-            // damit sieht man wer und wann die dateien geaendert worden sind, da kann man auch die vergleiche aufrufen.
-            // kann man auch zwei versionen darunter auswaehlen und vergleichen.
-            // Sehr grafisch wird es beim Team Explorer, anstatt die Aenderungen Menu, der Branches (bzw (Verzweigungen) auszuwaehlen
-            // dann rechte maus auf die Master zum beispiel,dann View History und es zeigt uns die ganze Branches und die entsprechenden Kommentare.
-            // da kann man auch CommitDetails anzeigen auswaehlen und es zeigt in der Team Explorer alle die Dateien die geaendert worden sind.
+                // Um Aenderungen zurueck zu nehmen, kann mann die so erledigen:
+                // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann Undo Changes.
+                // Damit muss mann sehr VORSICHTIG sein, da diese Aenderungen werden komplett geloescht und nicht mehr nachzuholen.
 
 
-            // Video 42 Verwende keine Versionbezeichnung im Namen
-            // Taschenrechner zu Taschenrechner_AR geaendert alst test nur.
-            // Projekt umbenennen, dafuer im Projektmappen-Explorer aendern:
-            //      Projektmappe
-            //      Projektdatei 
-            //      Namespace 
-            // Auch wichtig ist in die Eigenschaften die ausfuehrbare Datei Name und Standardnamespace auch zu aendern.
-            //      Asemblyname
-            //      Standardnamespace
-            //(der letzte ist wichtig fuer die weiterentwicklung)
-            // dannach immer wieder erstellen und pruefen dass alles ok ist.
-            // dann auch die Repos ordner und Projekt Ordner name aendern. DAFUR ABER ERST VisualStudio schliessen.
-            // Beim erneut oeffnen wird es Visualstudio nicht finden koennen (nicht verfuegbar, 
-            // dann muss man das projekt entfernen und erneut laden aus der richtige Ordner bzw richtige Ordnername und das  schon vorhandene .csproj erneut laden
+                // Video 40 Die Versionhistorie mit Visualstudio und Git
+                // Rechte maus auf die datei (diesmal Program.cs), dann Git(oder vielleicht die Optionen sind direkt angezeigt), dann View History (oder Verlauf anzeigen)
+                // damit sieht man wer und wann die dateien geaendert worden sind, da kann man auch die vergleiche aufrufen.
+                // kann man auch zwei versionen darunter auswaehlen und vergleichen.
+                // Sehr grafisch wird es beim Team Explorer, anstatt die Aenderungen Menu, der Branches (bzw (Verzweigungen) auszuwaehlen
+                // dann rechte maus auf die Master zum beispiel,dann View History und es zeigt uns die ganze Branches und die entsprechenden Kommentare.
+                // da kann man auch CommitDetails anzeigen auswaehlen und es zeigt in der Team Explorer alle die Dateien die geaendert worden sind.
 
 
-            // Video 43 AssemblyInfo - Versionsinformationen in den Meta-Daten
-            // fuer die Info unter der .exe Datei Eigenschaften auch aendern zu koennen.
-            // Wir koenen die Dateibeschreibung unten Eigenschaften/Detail anpassen, vor allem sind wichtig die Dateibeschreibung, Produktname, DateiVersion und Produktversion ...
-            // dafuer gehen wir unter Projektname/Properties/AssemblyInfo und aendern die 
-            //    AssemblyTitle
-            //    AssemblyCompany
-            //    AssemblyProduct
-            //    AssemblyVersion ist etwas anderes und kann problemme erzeugen:
-            //Bei diesem Fehler wird auch darauf hingewiesen, dass man Deterministic ändern soll.
-            //Das findest du in deiner *.csproj. einfach in der (windows) Suche nach "*.csproj" suchen und mit z.B. Notepad++ ändern von
-            //<Deterministic>true</Deterministic> auf <Deterministic>false</Deterministic> Dann geht es auch mit *
-            //[assembly: AssemblyVersion("1.0.*")]
-            // diese sternchen macht für jedes Erstellen vom Programm eine neue Versionsnummer hinterlegen sodass es immer nachverfolgbar ist
-            // damit kann man eine liste selbst schreiben für welche Version  und Status kriegen.
+                // Video 42 Verwende keine Versionbezeichnung im Namen
+                // Taschenrechner zu Taschenrechner_AR geaendert alst test nur.
+                // Projekt umbenennen, dafuer im Projektmappen-Explorer aendern:
+                //      Projektmappe
+                //      Projektdatei 
+                //      Namespace 
+                // Auch wichtig ist in die Eigenschaften die ausfuehrbare Datei Name und Standardnamespace auch zu aendern.
+                //      Asemblyname
+                //      Standardnamespace
+                //(der letzte ist wichtig fuer die weiterentwicklung)
+                // dannach immer wieder erstellen und pruefen dass alles ok ist.
+                // dann auch die Repos ordner und Projekt Ordner name aendern. DAFUR ABER ERST VisualStudio schliessen.
+                // Beim erneut oeffnen wird es Visualstudio nicht finden koennen (nicht verfuegbar, 
+                // dann muss man das projekt entfernen und erneut laden aus der richtige Ordner bzw richtige Ordnername und das  schon vorhandene .csproj erneut laden
 
-            //Video 44 unser erstes mini-Release
-            // Eine Iteration sicher zu stellen und fuer zukunftige nachverfolgungen sauberer gespeichert zu haben.
-            // eine Release zu machen ( .exe und Dokumentation getrennt kriegen.
-            // um Tags zu haben.
-            // Wir machen eine neue  "Meilesteine" Ordner in unsere Projekt mit Unterordner "Iteration 1" (1 fuer dieses Beispiel)
-            // da werde wir packen unsere .exe und ein Release Note .txt
-            //  da Beschreiben wir was es hat und kann (formell fuer ofizielle Releases und informell fuer internen) aber sollte schnell gehen
-            //  TAG     ART     STATUS      FUNKTION
-            // dann der .exe holen UND die .exe.config und .pdb (eingentlich alle die Dateien mit den gleiche Name die wir generiert haben...)
-            // Manchmal gibtes auch ein setup oder sowas.
-            // beispiel unter Meilesteine/Iteration1
-            // dann alles komprimieren in zip und dazu zurueck in unsere .exe suchen (projekt/obj/Debug um die generierte Versionesnummer und Datum aufzuschreiben.
-            // in diesem Beispielfall: 18.08.2020 15:49 Produktversion 1.0.7535.284878
-            // das aufschreiben in der... Versionsverwaltung auftragen.
-            // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
-            **/
+
+                // Video 43 AssemblyInfo - Versionsinformationen in den Meta-Daten
+                // fuer die Info unter der .exe Datei Eigenschaften auch aendern zu koennen.
+                // Wir koenen die Dateibeschreibung unten Eigenschaften/Detail anpassen, vor allem sind wichtig die Dateibeschreibung, Produktname, DateiVersion und Produktversion ...
+                // dafuer gehen wir unter Projektname/Properties/AssemblyInfo und aendern die 
+                //    AssemblyTitle
+                //    AssemblyCompany
+                //    AssemblyProduct
+                //    AssemblyVersion ist etwas anderes und kann problemme erzeugen:
+                //Bei diesem Fehler wird auch darauf hingewiesen, dass man Deterministic ändern soll.
+                //Das findest du in deiner *.csproj. einfach in der (windows) Suche nach "*.csproj" suchen und mit z.B. Notepad++ ändern von
+                //<Deterministic>true</Deterministic> auf <Deterministic>false</Deterministic> Dann geht es auch mit *
+                //[assembly: AssemblyVersion("1.0.*")]
+                // diese sternchen macht für jedes Erstellen vom Programm eine neue Versionsnummer hinterlegen sodass es immer nachverfolgbar ist
+                // damit kann man eine liste selbst schreiben für welche Version  und Status kriegen.
+
+                //Video 44 unser erstes mini-Release
+                // Eine Iteration sicher zu stellen und fuer zukunftige nachverfolgungen sauberer gespeichert zu haben.
+                // eine Release zu machen ( .exe und Dokumentation getrennt kriegen.
+                // um Tags zu haben.
+                // Wir machen eine neue  "Meilesteine" Ordner in unsere Projekt mit Unterordner "Iteration 1" (1 fuer dieses Beispiel)
+                // da werde wir packen unsere .exe und ein Release Note .txt
+                //  da Beschreiben wir was es hat und kann (formell fuer ofizielle Releases und informell fuer internen) aber sollte schnell gehen
+                //  TAG     ART     STATUS      FUNKTION
+                // dann der .exe holen UND die .exe.config und .pdb (eingentlich alle die Dateien mit den gleiche Name die wir generiert haben...)
+                // Manchmal gibtes auch ein setup oder sowas.
+                // beispiel unter Meilesteine/Iteration1
+                // dann alles komprimieren in zip und dazu zurueck in unsere .exe suchen (projekt/obj/Debug um die generierte Versionesnummer und Datum aufzuschreiben.
+                // in diesem Beispielfall: 18.08.2020 15:49 Produktversion 1.0.7535.284878
+                // das aufschreiben in der... Versionsverwaltung auftragen.
+                // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
+                **/
+
+            }
 
 
             /// Video 60 Vergleichoperatoren und der Datentyp bool (boolean)
@@ -284,6 +300,14 @@ namespace Taschenrechner_AR
             HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
         }
 
+        /// <summary>
+        /// Video 64 verbesserung: Methode fuer die Convert.ToDouble auslagern
+        /// TODO: vielleicht hier auch falschen Eingaben kontrollieren.
+        /// <summary>
+        static double VonStringNachDouble(string eingabe)
+        {
+            return Convert.ToDouble(eingabe);
+        }
 
         /// Video 60 Vergleichoperatoren und der Datentyp bool (boolean)
         ///static bool IstGleich(double a, double b)

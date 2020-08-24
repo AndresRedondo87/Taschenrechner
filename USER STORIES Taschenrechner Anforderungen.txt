@@ -26,7 +26,7 @@ Akzeptanzkriterien:
 Status:
 	-Umgesetzt
 	-Getestet
-	-Erledigt (Teilen durch null brauchte Verbesserungen)
+	-Erledigt 
 
 ------------------------------------------------
 
