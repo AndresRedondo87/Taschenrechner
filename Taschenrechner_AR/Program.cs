@@ -67,7 +67,7 @@ namespace Taschenrechner_AR
              *  string operator = HoleBenutzerEingabe("\n\nBitte geben Sie die gewünschte Operation an (+, -, /, *): "); OPERATOR ist SCHLUSSELWORT, nicht verwendbar hier.
              EXTRA while loop bis gueltige Operator eingegeben wird*/
             string operation= "0";
-            while ((operation != "+") && (operation != "-") && (operation != "*") && (operation != "/"))
+            while ((operation != "+") && (operation != "-") && (operation != "*") && (operation != ".") && (operation != "/"))
                     {
                 operation = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, /, *): ");
                 //TODO: noch * und / offen!
@@ -299,23 +299,41 @@ namespace Taschenrechner_AR
         static double BerechnungAusfuehren(double ersterZahl, double zweiterZahl, string operation)
         {
             double ergebniss=0;
-             if( operation == "+")
+            /// Video 61 - Switch-Case-Anweisung - Eine alternative zu if.else-Anweisung
+            ///case "wert":....
+            ///und am Ende immer ein "break".
+            switch (operation)
             {
-                ergebniss = Addiere(ersterZahl, zweiterZahl);
+                case "+":
+                    {
+                        ergebniss = Addiere(ersterZahl, zweiterZahl);
+                        break;
+                    }
+                case "-":
+                    {
+                        ergebniss = Substrahiere(ersterZahl, zweiterZahl);
+                        break;
+                    }
+                // zwei cases direkt nacheinander bedeutet sie machen einfach genau das gleiche.
+                //hier erklaert mit * oder . zur multiplikation(sollte auch in Operatoren Eingabe betrachtet sein!)
+                case ".":
+                case "*":
+                    {
+                        ergebniss = Multipliziere(ersterZahl, zweiterZahl);
+                        break;
+                    }
+                case "/":
+                    {
+                        ergebniss = Teile(ersterZahl, zweiterZahl);
+                        break;
+                    }
+                
+                default:
+                    {
+                        Console.WriteLine("\nERROR, OPERATOR UNGÜLTIG!!");
+                        break;
+                    }
             }
-            else if (operation == "-")
-            {
-                ergebniss = Substrahiere(ersterZahl, zweiterZahl);
-            }
-            else if (operation == "*")
-            {
-                ergebniss = Multipliziere(ersterZahl, zweiterZahl);
-            }
-            else if (operation == "/")
-            {
-                ergebniss = Teile(ersterZahl, zweiterZahl);
-            }
-
             return ergebniss;
         }
 
