@@ -63,6 +63,14 @@ namespace Taschenrechner_AR
             // In Aufrufliste koennen wir sehen, der Breakpoint zeigt wo es ist, gelbe Pfeil zeigt wo der Schritt gerade ist, z.B. HoleSummanden in diesem Fall
             // Prozedurschritte unter Debuggen / F10 druecken / Button in toolbars oben um ein ProzedurSchritt bzw. Anweisungengruppe nach vorne gehen wird hier nicht erklärt.
             */
+            /** Video 58 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
+             *  string operator = HoleBenutzerEingabe("\n\nBitte geben Sie die gewünschte Operation an (+, -, /, *): "); OPERATOR ist SCHLUSSELWORT, nicht verwendbar hier.
+             EXTRA while loop bis gueltige Operator eingegeben wird*/
+            string operation= "0";
+            while ((operation != "+") && (operation != "-") && (operation != "*") && (operation != "/"))
+                    {
+                operation = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, /, *): ");
+            }
 
             /**
             //hier das gleiche mit andere Variablenname
@@ -170,17 +178,20 @@ namespace Taschenrechner_AR
              *  wieviele Verweise werden damit automatisch auch geaendert, in diesem Fall 3.  auch fuer ersterSummandAlsZahl und zweiterSummandAlsZahl */
 
             //Berechnung Ausfuehren
-            double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
-            double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
+            double ergebniss = BerechnungAusfuehren(ersterZahl, zweiterZahl, operation);
+            //double summeAlsZahl = Addiere(ersterZahl, zweiterZahl);
+            //double differenzAlsZahl = Substrahiere(ersterZahl, zweiterZahl);
             // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+
 
 
             //Ausgabe
-            Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, summeAlsZahl);
-            Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, differenzAlsZahl);
+            //Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
+            //Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
             // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
-
-
+            /** Video 58 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
+             * Ergebniss Darstellen muss auch geändert werden*/
+            Console.WriteLine("\nDie Ergebniss ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
             /**
             //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
             //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
@@ -251,6 +262,32 @@ namespace Taschenrechner_AR
             // Milesteine und Release Notes könnte man im VisualStudio konnte man die hinzufügen mit Vorhandenes element (wie mit UserStories)
             **/
             HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+        }
+
+
+        static double BerechnungAusfuehren(double ersterZahl, double zweiterZahl, string operation)
+        {
+            double ergebniss=0;
+             if( operation == "+")
+            {
+                ergebniss = Addiere(ersterZahl, zweiterZahl);
+            }
+            else if (operation == "-")
+            {
+                ergebniss = Substrahiere(ersterZahl, zweiterZahl);
+            }
+            else if (operation == "*")
+            {
+                ergebniss = 0;
+                Console.WriteLine("\nDie Operation ist noch nicht verfügbar");
+            }
+            else if (operation == "/")
+            {
+                ergebniss = 0;
+                Console.WriteLine("\nDie Operation ist noch nicht verfügbar");
+            }
+
+            return ergebniss;
         }
 
         /**Video 57  Benutzerinteraktion - eine Methode fuer alles: WarteAufBenutzerEingabe Methode redundant mit HoleBenutzerEingabe,, daher kann es geloescht bzw rauskommentiert werden
