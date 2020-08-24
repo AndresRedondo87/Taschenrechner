@@ -19,6 +19,15 @@ Status:
 	-Getestet
 	-Erledigt
 
+	Titel: Multiplizieren und teilen
+Story: Als Benutzer möchte ich mit gleitkommazahlen Multiplizieren und teilen zu können.
+Akzeptanzkriterien:
+	-Gleitkommazahlen können Multiplizieret und geteilt werden(zwischen -10.0 und 100.0).
+Status:
+	-Umgesetzt
+	-Getestet
+	-Erledigt (Teilen durch null brauchte Verbesserungen)
+
 ------------------------------------------------
 
 Titel: Addieren mit Gleitkommazahlen (unter Iteration1)
