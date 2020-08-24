@@ -70,6 +70,7 @@ namespace Taschenrechner_AR
             while ((operation != "+") && (operation != "-") && (operation != "*") && (operation != "/"))
                     {
                 operation = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, /, *): ");
+                //TODO: noch * und / offen!
             }
 
             /**
@@ -189,9 +190,9 @@ namespace Taschenrechner_AR
             //Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
             //Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
             // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
-            /** Video 58 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
+            /** Video 58-59 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
              * Ergebniss Darstellen muss auch geändert werden*/
-            Console.WriteLine("\nDie Ergebniss ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
+            Console.WriteLine("\nDas Resultat ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
             /**
             //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
             //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
@@ -264,7 +265,11 @@ namespace Taschenrechner_AR
             HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
         }
 
-
+        /// <summary>
+        /// Video 58 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
+        /// Video 59 If-Anweisung, der Taschenrechner lernt minus
+        ///  sogar mehr erweiters als von der Uebung erwartet war.
+        /// <summary>
         static double BerechnungAusfuehren(double ersterZahl, double zweiterZahl, string operation)
         {
             double ergebniss=0;
