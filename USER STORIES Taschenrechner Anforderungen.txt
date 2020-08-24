@@ -15,8 +15,9 @@ Story: Als Benutzer möchte ich mit gleitkommazahlen Substrahieren zu können.
 Akzeptanzkriterien:
 	-Gleitkommazahlen können Substrahiert werden(zwischen -10.0 und 100.0).
 Status:
-	-Offen
-
+	-Umgesetzt
+	-Getestet
+	-Erledigt
 
 ------------------------------------------------
 

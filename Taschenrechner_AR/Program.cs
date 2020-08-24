@@ -46,8 +46,8 @@ namespace Taschenrechner_AR
 
             //User Story "Addieren":
             /// Video 53 Verwenden bzw. verwenden einer Methode
-            string ersterSummand = HoleSumanden("Bitte geben Sie den ersten Summanden ein:");
-            string zweiterSummand = HoleSumanden("Bitte geben Sie den zweiter Summanden ein:");
+            string ersterSummand = HoleSumanden("Bitte geben Sie den ersten Summanden ein: ");
+            string zweiterSummand = HoleSumanden("Bitte geben Sie den zweiter Summanden ein: ");
             /** Video 54 Methoden ausfuehren lerne den Debugger kennen
             // BREAKPOINT Bzw. Haltepunkte verwenden, Fenster Auto und Lokal fuer Variablen und ihre Werte... 
             // Lokal variablen werden in rot markiert wenn sie gerade geandert worden sind. Hilfreich zum Fehlersuche, auch in return.
@@ -160,9 +160,15 @@ namespace Taschenrechner_AR
 
             //Berechnung Ausfuehren
             double summeAlsZahl = Addiere(ersterSummandAlsZahl, zweiterSummandAlsZahl);
+            double differenzAlsZahl = Substrahiere(ersterSummandAlsZahl, zweiterSummandAlsZahl);
+            // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
 
             //Ausgabe
             Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, summeAlsZahl);
+            Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterSummandAlsZahl, zweiterSummandAlsZahl, differenzAlsZahl);
+            // Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+
+
             /**
             //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
             //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
@@ -260,6 +266,15 @@ namespace Taschenrechner_AR
 
         //Video 51 - Versionsverwaltung nicht vergesen, Immer commit und push!!
 
+        /// <summary>
+        /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
+        /// Substrahieren Methode abstrahieren. Aufpassesn auf Variablennamen, VariablenTypen...
+        /// </summary>
+        static double Substrahiere(double ersterSummand, double zweiterSummand)
+        {
+            double differenz = ersterSummand - zweiterSummand;
+            return differenz;
+        }
 
         /// <summary>
         /// Methoden Definieren in 7 Schritten
