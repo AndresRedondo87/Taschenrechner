@@ -289,8 +289,42 @@ namespace Taschenrechner_AR
         static void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl, double ergebniss, string operation)
         {
             //kompletteAusgabe ist der string um die Ausgabe getrennt zu formatieren
-            string kompletteAusgabe = "\nDas Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";
-            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebniss, operation);
+            string kompletteAusgabe = "\nDas {4} Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";           
+            //Operation Name auch anpassen
+            string operationAlsText="";
+            switch (operation)
+            {
+                case "+":
+                    {
+                        operationAlsText = "Addieren";
+                        break;
+                    }
+                case "-":
+                    {
+                        operationAlsText = "Substrahieren";
+                        break;
+                    }
+                /// zwei cases direkt nacheinander bedeutet sie machen einfach genau das gleiche.
+                ///hier erklaert mit * oder . zur multiplikation(sollte auch in Operatoren Eingabe betrachtet sein!)
+                case ".":
+                case "*":
+                    {
+                        operationAlsText = "Multiplikation";
+                        break;
+                    }
+                case "/":
+                    {
+                        operationAlsText = "Division";
+                        break;
+                    }
+
+                default:
+                    {
+                        operationAlsText= ("\nERROR, OPERATION UNGÜLTIG!!\n");
+                        break;
+                    }
+            }
+            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebniss, operation, operationAlsText);
         }
 
 
