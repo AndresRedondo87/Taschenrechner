@@ -27,7 +27,7 @@ namespace Taschenrechner_AR
 
             ///User Story "Addieren":
             /// Video 53 Verwenden bzw. verwenden einer Methode
-            string ersteZahlAlsString = HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein: ");
+            string ersteZahlAlsString = HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
 
 
             /** Video 57  Benutzerinteraktion - eine Methode fuer alles
@@ -180,13 +180,15 @@ namespace Taschenrechner_AR
                 /// die Berechnung und die Ausgabe zu trennen habe ich auch schon getrennt.
 
 
+                /// Video 64 verbesserung: Ausgabe auch in Methode getrennt
                 ///Ausgabe
                 ///Console.WriteLine("\nDie Summe ist: \n   {0} \n + {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
                 ///Console.WriteLine("\n\nDie Differenz ist: \n   {0} \n - {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss);
                 /// Video 56 Mini-Uebung - erstelle eine Methode die Zwei Zahlen Substrahiert
                 /** Video 58-59 Mini.Uebung - Verwende eine Methode um den Operator einzulesen
                  * Ergebniss Darstellen muss auch geändert werden*/
-                Console.WriteLine("\nDas Resultat ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
+                //Console.WriteLine("\nDas Resultat ist: \n   {0} \n {3} {1} \n-----\n   {2}", ersterZahl, zweiterZahl, ergebniss, operation);
+                KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, ergebniss, operation);
                 /**
                 //Video 39 Aeltere version wiederherstellen - Fehler Korrigieren ganz einfach.(die Korrektur als double gehoert eigentlich hier.
                 //Double sind schon verwendet... und bestätigt. wir wollen aber wieder float verwenden!! wiederherstellen via git moeglich.
@@ -281,6 +283,18 @@ namespace Taschenrechner_AR
 
 
         /// <summary>
+        /// Video 64 verbesserung: Ausgabe auch in Methode getrennt
+        /// Nur gueltige Operetionsymbole werden akzeptiert
+        /// <summary>
+        static void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl, double ergebniss, string operation)
+        {
+            //kompletteAusgabe ist der string um die Ausgabe getrennt zu formatieren
+            string kompletteAusgabe = "\nDas Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";
+            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebniss, operation);
+        }
+
+
+        /// <summary>
         /// Video 64 verbesserung: Methode fuer die Operation Eingabe auslagern.
         /// Nur gueltige Operetionsymbole werden akzeptiert
         /// <summary>
@@ -288,7 +302,7 @@ namespace Taschenrechner_AR
         {
             while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
             {
-                operationSymbol = HoleBenutzerEingabe("Bitte geben Sie die gewünschte Operation an (+, -, ., *, /): ");
+                operationSymbol = HoleBenutzerEingabe("Jetzt die Operation (+, -, ., *, /): ");
             }
             return operationSymbol;
         }
