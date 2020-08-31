@@ -1,0 +1,8 @@
+TAG: Iteration_2_fertig
+ART: Internes Entwicklungsrelease
+STATUS: Informell getestet - kann an Tester verteilt werden.
+FUNKTION:
+	* Addieren/Substrahieren/Multiplizieren/Dividieren von Gleitkommazahlen
+	* Warnung gegen durch-Zero-teilen
+	* Schnelles Starten (einfach die EXE ausführen)
+	** Programm Kurs kommentiert bis video 78
