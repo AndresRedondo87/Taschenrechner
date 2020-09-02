@@ -28,6 +28,27 @@ namespace Taschenrechner_AR
             //das attribut(this.model) hier wird das parameter(model) uebernehmen
         }
 
+        /// Video 82 Korrektur fuer die Klasse ConsoleView. Die Strings aus Program main muessten raus, dafuer brauchen wir neue Methoden, an unsere Klasse entsprechend angepasst.
+        /// Machnmal die Methode die wir so schoen standarisiert hatten, muessen neu angepasst sein auf die neue Klassen
+        /// Diese 3 methoden sind die Loesung von Lehrer, meine (vor allem  HoleGueltigeOperation) ist unten noch, unbenutzt/auskommentiert
+        //-------------------------------------
+        public string HoleZahlvonBenutzer()
+        {
+            Console.Write("\nBitte geben Sie eine Zahl ein : ");
+            return Console.ReadLine();
+
+        }
+        public string HoleOperatorVonBenutzer()
+        {
+            Console.Write("Jetzt die Operation (+, -, ., *, /): "); 
+            return Console.ReadLine();
+        }
+        public string WarteAufEndeDurchBenutzer()
+        {
+            Console.Write("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+            return Console.ReadLine();
+        }
+        //-------------------------------------
 
         public string HoleBenutzerEingabe(string ausgabeText)
         {

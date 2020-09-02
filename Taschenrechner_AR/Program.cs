@@ -21,10 +21,16 @@ namespace Taschenrechner_AR
             RechnerModel model = new RechnerModel();
             ConsoleView view = new ConsoleView(model); //diese Konstruktor wird auch initialisiert deswegen brauchen wir den model rein.
 
-            string ersteZahlAlsString = view.HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
-            string operation = "";
-            operation = view.HoleGueltigeOperation(operation);
-            string zweiteZahlAlsString = view.HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
+
+            /// Video 82 Korrektur fuer die Klasse ConsoleView. Die Strings aus Program main muessten raus,
+            //string ersteZahlAlsString = view.HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
+            //string operation = "";
+            ////operation = view.HoleGueltigeOperation(operation);
+            //string zweiteZahlAlsString = view.HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
+            string ersteZahlAlsString = view.HoleZahlvonBenutzer();
+            string operation = view.HoleOperatorVonBenutzer();
+            string zweiteZahlAlsString = view.HoleZahlvonBenutzer();
+
 
             ///Wandel Text in Gleitkommazahlen
             double ersterZahl = VonStringNachDouble(ersteZahlAlsString);
@@ -107,7 +113,8 @@ namespace Taschenrechner_AR
 
 
             // Programm Beenden
-            view.HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+            //view.HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+            view.WarteAufEndeDurchBenutzer();
         }
 
 
