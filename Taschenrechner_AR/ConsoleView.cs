@@ -14,6 +14,20 @@ namespace Taschenrechner_AR
     /// </summary>
     class ConsoleView
     {
+        /// Video 82 Korrektur fuer die Klasse ConsoleView: Die Methode als public zu setzen war erstmal richtig.
+        /// 
+        /// Video 82 Korrektur fuer die Klasse ConsoleView. Verbesserungen, die Resultat direkt aus der Model holen koennen.
+        /// Die Klasse ConsoleView muss erst die Klasse RechnerModel kennen.
+        /// Ein attribut von model um den Inhalt zugreifen zu koennen.
+        private RechnerModel model;
+        
+        // Un ein Konstruktor mit model als parameter um deren Inhaelte zugreifen zu koennen
+        public ConsoleView(RechnerModel model)
+        {
+            this.model = model;
+            //das attribut(this.model) hier wird das parameter(model) uebernehmen
+        }
+
 
         public string HoleBenutzerEingabe(string ausgabeText)
         {
@@ -40,7 +54,10 @@ namespace Taschenrechner_AR
         /// Video 64 verbesserung: Ausgabe auch in Methode getrennt
         /// Nur gueltige Operetionsymbole werden akzeptiert
         /// <summary>
-        public void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl, double ergebniss, string operation)
+        /// 
+        public void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl, string operation)
+
+        /// Video 82 Korrektur fuer die Klasse ConsoleView: der Resultat ist kein Parameter mehr sondern wird aus der model geholt, siehe unten in die Ausgabe
         {
             //kompletteAusgabe ist der string um die Ausgabe getrennt zu formatieren
             string kompletteAusgabe = "\nDas {4} Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";
@@ -78,7 +95,9 @@ namespace Taschenrechner_AR
                         break;
                     }
             }
-            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebniss, operation, operationAlsText);
+            //Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebnis, operation, operationAlsText);
+            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, model.Resultat, operation, operationAlsText);
+            /// Video 82 Korrektur fuer die Klasse ConsoleView: der Resultat(alt ergebnis) ist kein Parameter mehr sondern wird aus der model geholt!!
         }
     }
 }

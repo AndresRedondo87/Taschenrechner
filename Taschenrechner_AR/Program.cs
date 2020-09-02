@@ -17,7 +17,10 @@ namespace Taschenrechner_AR
         static void Main()
         {
             ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
-            ConsoleView view = new ConsoleView();
+            /// Video 82 Korrektur fuer die Klasse ConsoleView. die view.xyz hat gut funktioniert./// Video 82 Korrektur fuer die Klasse ConsoleView. diese model wird fuer den view gebraucht, so wir verlagern es zu ganz am Anfang
+            RechnerModel model = new RechnerModel();
+            ConsoleView view = new ConsoleView(model); //diese Konstruktor wird auch initialisiert deswegen brauchen wir den model rein.
+
             string ersteZahlAlsString = view.HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
             string operation = "";
             operation = view.HoleGueltigeOperation(operation);
@@ -37,7 +40,8 @@ namespace Taschenrechner_AR
             else
             {
                 //Berechnung Ausfuehren
-                RechnerModel model = new RechnerModel();
+                /// Video 82 Korrektur fuer die Klasse ConsoleView. diese model wird fuer den view gebraucht, so wir verlagern es zu ganz am Anfang
+                //RechnerModel model = new RechnerModel();
                 //double resultat = model.Berechne(ersterZahl, zweiterZahl, operation);
                 model.Berechne(ersterZahl, zweiterZahl, operation);
                 /// Video 80-2te Teil- RESULTAT ist jetzt eine Property,so braucht man kein double resultat zu definieren.
@@ -46,8 +50,10 @@ namespace Taschenrechner_AR
 
                 ///Ausgabe
                 ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
-                view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
-               
+                /// Video 82 Korrektur fuer die Klasse ConsoleView. die view.xyz hat gut funktioniert.
+                //view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
+                view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, operation);
+                /// Video 82 Korrektur fuer die Klasse ConsoleView. Resultat ist kein Parameter mehr, sondern wird aus model geholt.
                 /**
                 // Video 42 Verwende keine Versionbezeichnung im Namen
                 // Taschenrechner zu Taschenrechner_AR geaendert alst test nur.
