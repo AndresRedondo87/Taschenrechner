@@ -29,7 +29,8 @@ Akzeptanzkriterien:
 Hinweis:
 	-Diese Story ist eine Erweiterung zu Story "Softwarestruktur"
 Status:
-	-Offen
+	-Umgesetzt
+	-Teilweise Erledigt (kann natuerlich noch verbessert werden[video 85])
 
 
 ------------------------
