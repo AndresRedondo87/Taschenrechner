@@ -16,10 +16,12 @@ namespace Taschenrechner_AR
     {
         static void Main()
         {
-            string ersteZahlAlsString = HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
+            ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
+            ConsoleView view = new ConsoleView();
+            string ersteZahlAlsString = view.HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
             string operation = "";
-            operation = HoleGueltigeOperation(operation);
-            string zweiteZahlAlsString = HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
+            operation = view.HoleGueltigeOperation(operation);
+            string zweiteZahlAlsString = view.HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
 
             ///Wandel Text in Gleitkommazahlen
             double ersterZahl = VonStringNachDouble(ersteZahlAlsString);
@@ -40,10 +42,11 @@ namespace Taschenrechner_AR
                 model.Berechne(ersterZahl, zweiterZahl, operation);
                 /// Video 80-2te Teil- RESULTAT ist jetzt eine Property,so braucht man kein double resultat zu definieren.
                 /// In die Ausgabe wird auch model.Resultat anstatt resultat gebraucht
-                 
-                
+
+
                 ///Ausgabe
-                KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
+                ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
+                view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
                
                 /**
                 // Video 42 Verwende keine Versionbezeichnung im Namen
@@ -98,68 +101,10 @@ namespace Taschenrechner_AR
 
 
             // Programm Beenden
-            HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+            view.HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
         }
 
 
-        /// <summary>
-        /// Video 64 verbesserung: Ausgabe auch in Methode getrennt
-        /// Nur gueltige Operetionsymbole werden akzeptiert
-        /// <summary>
-        static void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl, double ergebniss, string operation)
-        {
-            //kompletteAusgabe ist der string um die Ausgabe getrennt zu formatieren
-            string kompletteAusgabe = "\nDas {4} Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";           
-            //Operation Name auch anpassen
-            string operationAlsText="";
-            switch (operation)
-            {
-                case "+":
-                    {
-                        operationAlsText = "Addieren";
-                        break;
-                    }
-                case "-":
-                    {
-                        operationAlsText = "Substrahieren";
-                        break;
-                    }
-                /// zwei cases direkt nacheinander bedeutet sie machen einfach genau das gleiche.
-                ///hier erklaert mit * oder . zur multiplikation(sollte auch in Operatoren Eingabe betrachtet sein!)
-                case ".":
-                case "*":
-                    {
-                        operationAlsText = "Multiplikation";
-                        break;
-                    }
-                case "/":
-                    {
-                        operationAlsText = "Division";
-                        break;
-                    }
-
-                default:
-                    {
-                        operationAlsText= ("\nERROR, OPERATION UNGÜLTIG!!\n");
-                        break;
-                    }
-            }
-            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebniss, operation, operationAlsText);
-        }
-
-
-        /// <summary>
-        /// Video 64 verbesserung: Methode fuer die Operation Eingabe auslagern.
-        /// Nur gueltige Operetionsymbole werden akzeptiert
-        /// <summary>
-        static string HoleGueltigeOperation(string operationSymbol)
-        {
-            while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
-            {
-                operationSymbol = HoleBenutzerEingabe("Jetzt die Operation (+, -, ., *, /): ");
-            }
-            return operationSymbol;
-        }
         /// <summary>
         /// Video 64 verbesserung: Methode fuer die Convert.ToDouble auslagern
         /// TODO: vielleicht hier auch falschen Eingaben kontrollieren.
@@ -181,14 +126,6 @@ namespace Taschenrechner_AR
         /// -Geschweifte Klammern einfuegen
         /// -Methode implementieren (Anweisungen in den Methodenrumpf schreiben)
         /// </summary>
-
-        static string HoleBenutzerEingabe(string ausgabeText)
-        {
-            Console.Write(ausgabeText);
-            string Summand = Console.ReadLine();
-
-            return Summand;
-        }
 
 
         //BEISPIEL TEXT BZW HAUPT INFOS
