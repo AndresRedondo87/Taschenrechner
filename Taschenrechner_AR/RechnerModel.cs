@@ -11,33 +11,42 @@ namespace Taschenrechner_AR
     /// </summary>
     class RechnerModel
     {
+        public double Resultat { get; private set; }
+        /// Video 80-2te Teil- RESULTAT Property und setter privat gestzt sodass den Resultat darf nicht extern geaendert werden.
+        /// und auch ein neuer konstruktor mit
+        public RechnerModel()
+        {
+            Resultat = 0;
+        }
+
         /// Video 80 Zugriffsmodifizierer von static zu public da es extern verwendet wird.
         /// Es ist kein Klassenmethode mehr, da es veroeffentlich sein muss.
         /// Die einzelne Berechnungen duerfen private sein, weil sie nicht extern aufgerufen werden, nur "Berechne" (umbennant um besser zu verstehen)
-        public double Berechne(double ersterZahl, double zweiterZahl, string operation)
+        /// Video 80-2te Teil- RESULTAT ist jetzt eine Property, so jetzt Berechne kann VOID weden und den Ergebniss in den Property RESULTAT speichern!!
+        public void Berechne(double ersterZahl, double zweiterZahl, string operation)
         {
-            double ergebniss = 0;
+            /// Video 80-2te Teil-  "double ergebniss = 0;" nicht mehr gebraucht wegen Resultat Property
             switch (operation)
             {
                 case "+":
                     {
-                        ergebniss = Addiere(ersterZahl, zweiterZahl);
+                        Resultat = Addiere(ersterZahl, zweiterZahl);
                         break;
                     }
                 case "-":
                     {
-                        ergebniss = Substrahiere(ersterZahl, zweiterZahl);
+                        Resultat = Substrahiere(ersterZahl, zweiterZahl);
                         break;
                     }
                 case ".":
                 case "*":
                     {
-                        ergebniss = Multipliziere(ersterZahl, zweiterZahl);
+                        Resultat = Multipliziere(ersterZahl, zweiterZahl);
                         break;
                     }
                 case "/":
                     {
-                        ergebniss = Teile(ersterZahl, zweiterZahl);
+                        Resultat = Teile(ersterZahl, zweiterZahl);
                         break;
                     }
 
@@ -47,7 +56,8 @@ namespace Taschenrechner_AR
                         break;
                     }
             }
-            return ergebniss;
+            /// return ergebniss; bzw return Resultat
+            /// Video 80-2te Teil-  "double ergebniss = 0;" nicht mehr gebraucht wegen Resultat Property
         }
 
         private double Addiere(double ersterSummand, double zweiterSummand)

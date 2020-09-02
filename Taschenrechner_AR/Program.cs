@@ -36,10 +36,14 @@ namespace Taschenrechner_AR
             {
                 //Berechnung Ausfuehren
                 RechnerModel model = new RechnerModel();
-                double resultat = model.Berechne(ersterZahl, zweiterZahl, operation);
-
+                //double resultat = model.Berechne(ersterZahl, zweiterZahl, operation);
+                model.Berechne(ersterZahl, zweiterZahl, operation);
+                /// Video 80-2te Teil- RESULTAT ist jetzt eine Property,so braucht man kein double resultat zu definieren.
+                /// In die Ausgabe wird auch model.Resultat anstatt resultat gebraucht
+                 
+                
                 ///Ausgabe
-                KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, resultat, operation);
+                KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
                
                 /**
                 // Video 42 Verwende keine Versionbezeichnung im Namen
