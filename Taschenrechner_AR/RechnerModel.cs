@@ -11,8 +11,12 @@ namespace Taschenrechner_AR
     /// </summary>
     class RechnerModel
     {
+        public double ErsteZahl { get;  set; }
+        public double ZweiteZahl { get;  set; }
         public double Resultat { get; private set; }
-        public string Operation { get; private set; }
+        public string Operation { get;  set; }
+        /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
+        /// 
         /// Video 83 neue Operation Property die eigentlich hier gehoert
         /// Video 80-2te Teil- RESULTAT Property und setter privat gestzt sodass den Resultat darf nicht extern geaendert werden.
         /// und auch ein neuer konstruktor mit
@@ -27,36 +31,38 @@ namespace Taschenrechner_AR
         /// Es ist kein Klassenmethode mehr, da es veroeffentlich sein muss.
         /// Die einzelne Berechnungen duerfen private sein, weil sie nicht extern aufgerufen werden, nur "Berechne" (umbennant um besser zu verstehen)
         /// Video 80-2te Teil- RESULTAT ist jetzt eine Property, so jetzt Berechne kann VOID weden und den Ergebniss in den Property RESULTAT speichern!!
-        public void Berechne(double ersterZahl, double zweiterZahl, string operation)
+        public void Berechne()
         {
             /// Video 80-2te Teil-  "double ergebniss = 0;" nicht mehr gebraucht wegen Resultat Property
             /// Video 83 sicherheit  Operation ist jetzt eine Property dieses Klasses
-            this.Operation = operation;
+            /// this.Operation = operation;
 
-            switch (operation)
+            /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
+            switch (this.Operation)
             {
                 case "+":
                     {
-                        Resultat = Addiere(ersterZahl, zweiterZahl);
+                        Resultat = Addiere(this.ErsteZahl, this.ZweiteZahl);
                         break;
                     }
                 case "-":
                     {
-                        Resultat = Substrahiere(ersterZahl, zweiterZahl);
+                        Resultat = Substrahiere(this.ErsteZahl, this.ZweiteZahl);
                         break;
                     }
                 case ".":
                 case "*":
                     {
-                        Resultat = Multipliziere(ersterZahl, zweiterZahl);
+                        Resultat = Multipliziere(this.ErsteZahl, this.ZweiteZahl);
                         break;
                     }
                 case "/":
                     {
-                        Resultat = Teile(ersterZahl, zweiterZahl);
+                        Resultat = Teile(this.ErsteZahl, this.ZweiteZahl);
                         break;
                     }
-                case "unbekannt": /// Video 83 sicherheit um unbekannte Operation wen die Eingabe irgendwie scheitert... gleich wie default eigentlich. Diese Linie ist voellig unnoetig!(nur erklaerend)
+                case "unbekannt": /// Video 83 sicherheit um unbekannte Operation wen die Eingabe irgendwie scheitert... 
+                                  ///gleich wie default eigentlich. Diese Linie ist voellig unnoetig!(nur erklaerend)
                 default:
                     {
                         Console.WriteLine("\nERROR, OPERATOR UNGÜLTIG!!");

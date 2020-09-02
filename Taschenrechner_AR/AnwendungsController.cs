@@ -28,13 +28,17 @@ namespace Taschenrechner_AR
             ///string operation = "";
             ///operation = view.HoleGueltigeOperation(operation);
             ///string zweiteZahlAlsString = view.HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
-            double ersteZahl = view.HoleZahlvonBenutzer();
-            string operation = view.HoleOperatorVonBenutzer();
-            double  zweiteZahl = view.HoleZahlvonBenutzer();
-            // Video 83 ZahlEingaben schon direkt konvertiert
+            ///double ersteZahl = view.HoleZahlvonBenutzer();
+            ///string operation = view.HoleOperatorVonBenutzer();
+            ///double  zweiteZahl = view.HoleZahlvonBenutzer();
+            /// Video 83 ZahlEingaben schon direkt konvertiert
+
+            /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
+            view.HoleEigabenVomBenutzer();
+
 
             /// Video 64 verbesserung: teilen durch zero nicht erlaubt. bool variable eigentlich nicht erforderlich.
-            bool youShallNotDivideByZero = ((operation == "/") && (zweiteZahl == 0));
+            bool youShallNotDivideByZero = ((model.Operation == "/") && (model.ZweiteZahl == 0));
             if (youShallNotDivideByZero)
             {
                 Console.WriteLine("YOU SHALL NOT DIVIDE BY ZERO");
@@ -42,22 +46,23 @@ namespace Taschenrechner_AR
             }
             else
             {
-                //Berechnung Ausfuehren
+                ///Berechnung Ausfuehren
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. diese model wird fuer den view gebraucht, so wir verlagern es zu ganz am Anfang
-                //RechnerModel model = new RechnerModel();
-                //double resultat = model.Berechne(ersterZahl, zweiterZahl, operation);
-                model.Berechne(ersteZahl, zweiteZahl, operation);
+                ///RechnerModel model = new RechnerModel();
+                ///double resultat = model.Berechne(ersterZahl, zweiterZahl, operation);
+                ///model.Berechne(ersteZahl, zweiteZahl, operation);
                 /// Video 80-2te Teil- RESULTAT ist jetzt eine Property,so braucht man kein double resultat zu definieren.
                 /// In die Ausgabe wird auch model.Resultat anstatt resultat gebraucht
+                model.Berechne();
 
 
                 ///Ausgabe
                 ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. die view.xyz hat gut funktioniert.
-                //view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
+                ///view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
                 ///view.KompletteBerechnungAusgeben(ersteZahl, zweiteZahl, operation);
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. Resultat ist kein Parameter mehr, sondern wird aus model geholt.
-                view.KompletteBerechnungAusgeben(ersteZahl, zweiteZahl);
+                view.KompletteBerechnungAusgeben();
                 ///Video 83 DRITTE COMMIT: Operation gehoert in RechnerModel
                 /**
                 // Video 42 Verwende keine Versionbezeichnung im Namen
