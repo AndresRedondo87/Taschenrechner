@@ -28,17 +28,13 @@ namespace Taschenrechner_AR
             ///string operation = "";
             ///operation = view.HoleGueltigeOperation(operation);
             ///string zweiteZahlAlsString = view.HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
-            string ersteZahlAlsString = view.HoleZahlvonBenutzer();
+            double ersteZahl = view.HoleZahlvonBenutzer();
             string operation = view.HoleOperatorVonBenutzer();
-            string zweiteZahlAlsString = view.HoleZahlvonBenutzer();
-
-
-            ///Wandel Text in Gleitkommazahlen
-            double ersterZahl = VonStringNachDouble(ersteZahlAlsString);
-            double zweiterZahl = VonStringNachDouble(zweiteZahlAlsString);
+            double  zweiteZahl = view.HoleZahlvonBenutzer();
+            // Video 83 ZahlEingaben schon direkt konvertiert
 
             /// Video 64 verbesserung: teilen durch zero nicht erlaubt. bool variable eigentlich nicht erforderlich.
-            bool youShallNotDivideByZero = ((operation == "/") && (zweiterZahl == 0));
+            bool youShallNotDivideByZero = ((operation == "/") && (zweiteZahl == 0));
             if (youShallNotDivideByZero)
             {
                 Console.WriteLine("YOU SHALL NOT DIVIDE BY ZERO");
@@ -50,7 +46,7 @@ namespace Taschenrechner_AR
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. diese model wird fuer den view gebraucht, so wir verlagern es zu ganz am Anfang
                 //RechnerModel model = new RechnerModel();
                 //double resultat = model.Berechne(ersterZahl, zweiterZahl, operation);
-                model.Berechne(ersterZahl, zweiterZahl, operation);
+                model.Berechne(ersteZahl, zweiteZahl, operation);
                 /// Video 80-2te Teil- RESULTAT ist jetzt eine Property,so braucht man kein double resultat zu definieren.
                 /// In die Ausgabe wird auch model.Resultat anstatt resultat gebraucht
 
@@ -59,7 +55,7 @@ namespace Taschenrechner_AR
                 ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. die view.xyz hat gut funktioniert.
                 //view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
-                view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, operation);
+                view.KompletteBerechnungAusgeben(ersteZahl, zweiteZahl, operation);
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. Resultat ist kein Parameter mehr, sondern wird aus model geholt.
                 /**
                 // Video 42 Verwende keine Versionbezeichnung im Namen
@@ -112,20 +108,10 @@ namespace Taschenrechner_AR
 
             }
 
-
             // Programm Beenden
             //view.HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
             view.WarteAufEndeDurchBenutzer();
 
         }
-
-
-
-        /// Video 83 dieses auch aus Program rauskopiert
-        static double VonStringNachDouble(string eingabe)
-        {
-            return Convert.ToDouble(eingabe);
-        }
-
     }
 }

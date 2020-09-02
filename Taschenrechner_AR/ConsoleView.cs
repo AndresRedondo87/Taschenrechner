@@ -32,11 +32,11 @@ namespace Taschenrechner_AR
         /// Machnmal die Methode die wir so schoen standarisiert hatten, muessen neu angepasst sein auf die neue Klassen
         /// Diese 3 methoden sind die Loesung von Lehrer, meine (vor allem  HoleGueltigeOperation) ist unten noch, unbenutzt/auskommentiert
         //-------------------------------------
-        public string HoleZahlvonBenutzer()
+        public double HoleZahlvonBenutzer()
         {
             Console.Write("\nBitte geben Sie eine Zahl ein : ");
-            return Console.ReadLine();
-
+            ///Wandel Text in Gleitkommazahlen
+            return VonStringNachDouble(Console.ReadLine());
         }
         public string HoleOperatorVonBenutzer()
         {
@@ -120,5 +120,14 @@ namespace Taschenrechner_AR
             Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, model.Resultat, operation, operationAlsText);
             /// Video 82 Korrektur fuer die Klasse ConsoleView: der Resultat(alt ergebnis) ist kein Parameter mehr sondern wird aus der model geholt!!
         }
+
+
+
+        /// Video 83 dieses auch aus Program rauskopiert
+        static double VonStringNachDouble(string eingabe)
+        {
+            return Convert.ToDouble(eingabe);
+        }
+
     }
 }
