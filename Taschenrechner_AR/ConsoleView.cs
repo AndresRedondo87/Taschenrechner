@@ -76,7 +76,7 @@ namespace Taschenrechner_AR
         /// Nur gueltige Operetionsymbole werden akzeptiert
         /// <summary>
         /// 
-        public void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl, string operation)
+        public void KompletteBerechnungAusgeben(double ersterZahl, double zweiterZahl)
 
         /// Video 82 Korrektur fuer die Klasse ConsoleView: der Resultat ist kein Parameter mehr sondern wird aus der model geholt, siehe unten in die Ausgabe
         {
@@ -84,7 +84,7 @@ namespace Taschenrechner_AR
             string kompletteAusgabe = "\nDas {4} Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";
             //Operation Name auch anpassen
             string operationAlsText = "";
-            switch (operation)
+            switch (model.Operation)
             {
                 case "+":
                     {
@@ -117,7 +117,7 @@ namespace Taschenrechner_AR
                     }
             }
             //Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, ergebnis, operation, operationAlsText);
-            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, model.Resultat, operation, operationAlsText);
+            Console.WriteLine(kompletteAusgabe, ersterZahl, zweiterZahl, model.Resultat, model.Operation, operationAlsText);
             /// Video 82 Korrektur fuer die Klasse ConsoleView: der Resultat(alt ergebnis) ist kein Parameter mehr sondern wird aus der model geholt!!
         }
 

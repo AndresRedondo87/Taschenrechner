@@ -12,11 +12,15 @@ namespace Taschenrechner_AR
     class RechnerModel
     {
         public double Resultat { get; private set; }
+        public string Operation { get; private set; }
+        /// Video 83 neue Operation Property die eigentlich hier gehoert
         /// Video 80-2te Teil- RESULTAT Property und setter privat gestzt sodass den Resultat darf nicht extern geaendert werden.
         /// und auch ein neuer konstruktor mit
         public RechnerModel()
         {
             Resultat = 0;
+            Operation = "unbekannt";
+            /// Video 83 sicherheit um unbekannte Operation wen die Eingabe irgendwie scheitert... siehe Berechne switch-case
         }
 
         /// Video 80 Zugriffsmodifizierer von static zu public da es extern verwendet wird.
@@ -26,6 +30,9 @@ namespace Taschenrechner_AR
         public void Berechne(double ersterZahl, double zweiterZahl, string operation)
         {
             /// Video 80-2te Teil-  "double ergebniss = 0;" nicht mehr gebraucht wegen Resultat Property
+            /// Video 83 sicherheit  Operation ist jetzt eine Property dieses Klasses
+            this.Operation = operation;
+
             switch (operation)
             {
                 case "+":
@@ -49,7 +56,7 @@ namespace Taschenrechner_AR
                         Resultat = Teile(ersterZahl, zweiterZahl);
                         break;
                     }
-
+                case "unbekannt": /// Video 83 sicherheit um unbekannte Operation wen die Eingabe irgendwie scheitert... gleich wie default eigentlich. Diese Linie ist voellig unnoetig!(nur erklaerend)
                 default:
                     {
                         Console.WriteLine("\nERROR, OPERATOR UNGÜLTIG!!");

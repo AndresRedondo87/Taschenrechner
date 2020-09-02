@@ -55,8 +55,10 @@ namespace Taschenrechner_AR
                 ///  Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. die view.xyz hat gut funktioniert.
                 //view.KompletteBerechnungAusgeben(ersterZahl, zweiterZahl, model.Resultat, operation);
-                view.KompletteBerechnungAusgeben(ersteZahl, zweiteZahl, operation);
+                ///view.KompletteBerechnungAusgeben(ersteZahl, zweiteZahl, operation);
                 /// Video 82 Korrektur fuer die Klasse ConsoleView. Resultat ist kein Parameter mehr, sondern wird aus model geholt.
+                view.KompletteBerechnungAusgeben(ersteZahl, zweiteZahl);
+                ///Video 83 DRITTE COMMIT: Operation gehoert in RechnerModel
                 /**
                 // Video 42 Verwende keine Versionbezeichnung im Namen
                 // Taschenrechner zu Taschenrechner_AR geaendert alst test nur.
