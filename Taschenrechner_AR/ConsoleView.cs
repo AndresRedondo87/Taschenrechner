@@ -26,8 +26,12 @@ namespace Taschenrechner_AR
         {
             this.model = model;
             //das attribut(this.model) hier wird das parameter(model) uebernehmen
+            /// Video 87 While Schleife - wollen wir noch ne Runde?
+            BenutzerWillBeenden = false;
         }
 
+        /// Video 87 While Schleife - wollen wir noch ne Runde?
+        public bool  BenutzerWillBeenden { get;  private set; }
 
         /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
         /// hier werden die Eigaben in den neue Properties entsprechend gespeichert
@@ -44,9 +48,18 @@ namespace Taschenrechner_AR
         //-------------------------------------
         private double HoleZahlvonBenutzer()
         {
-            Console.Write("\nBitte geben Sie eine Zahl ein : ");
+            Console.Write("\nBitte geben Sie eine Zahl ein (FERTIG zum beenden): ");
             ///Wandel Text in Gleitkommazahlen
-            return VonStringNachDouble(Console.ReadLine());
+            ///return VonStringNachDouble(Console.ReadLine());
+            /// Video 87 While Schleife - wollen wir noch ne Runde? erste version von wiederholen.
+            /// Angepasst um eingabe "FERTIG" zum beenden benutzen zu koennen
+            string eingabe = Console.ReadLine();
+            if(eingabe == "FERTIG")
+            {
+                BenutzerWillBeenden = true;
+                eingabe = "0,0";//sicherheit, sonst ist die konvertierung danach fehlerhaft
+            }
+            return VonStringNachDouble(eingabe);
         }
         private string HoleOperatorVonBenutzer()
         {
