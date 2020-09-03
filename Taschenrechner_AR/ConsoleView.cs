@@ -35,11 +35,33 @@ namespace Taschenrechner_AR
 
         /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
         /// hier werden die Eigaben in den neue Properties entsprechend gespeichert
-        public void HoleEigabenVomBenutzer()
+        /// /// Video 87 While Schleife Verbesserungen 
+        public void HoleEingabenFuerErsteBerechnungVomBenutzer()
         {
             model.ErsteZahl = HoleZahlvonBenutzer();
             model.Operation = HoleOperatorVonBenutzer();
             model.ZweiteZahl = HoleZahlvonBenutzer();
+        }
+        /// Video 87 While Schleife Verbesserungen  hier wird das fertig eingabe erkannt zum beenden!
+        public void HoleEingabenFuerFortlaufendeBerechnung()
+        {
+            string eingabe = HoleNaechsteAktionVomBenutzer();
+
+            if (eingabe.ToUpper() == "FERTIG")    //kleine verbesserung um alle gross/klein schreiben zu erkennen (Fertig/fertig/FERTIG/FERtig...)
+            {
+                BenutzerWillBeenden = true;
+            }
+            else
+            {
+                model.ErsteZahl = model.Resultat;
+                model.ZweiteZahl = Convert.ToDouble(eingabe);
+            }
+        }
+
+        private string HoleNaechsteAktionVomBenutzer()
+        {
+            Console.Write("Bitte gib eine weitere Zahl ein (Fertig zum Beenden): ");
+            return Console.ReadLine();
         }
 
         /// Video 82 Korrektur fuer die Klasse ConsoleView. Die Strings aus Program main muessten raus, dafuer brauchen wir neue Methoden, an unsere Klasse entsprechend angepasst.
@@ -48,7 +70,7 @@ namespace Taschenrechner_AR
         //-------------------------------------
         private double HoleZahlvonBenutzer()
         {
-            Console.Write("\nBitte geben Sie eine Zahl ein (FERTIG zum beenden): ");
+            Console.Write("\nBitte geben Sie eine Zahl ein : ");
             ///Wandel Text in Gleitkommazahlen
             ///return VonStringNachDouble(Console.ReadLine());
             /// Video 87 While Schleife - wollen wir noch ne Runde? erste version von wiederholen.
@@ -63,37 +85,47 @@ namespace Taschenrechner_AR
         }
         private string HoleOperatorVonBenutzer()
         {
-            Console.Write("Jetzt die Operation (+, -, ., *, /): "); 
-            return Console.ReadLine();
+            //Console.Write("Jetzt die Operation (+, -, ., *, /): "); 
+            //return Console.ReadLine();
+            /// Video 87 While Schleife Verbesserungen 
+            string operationSymbol = "";
+            while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
+            {
+                operationSymbol = HoleBenutzerEingabe("\nJetzt die Operation (+, -, ., *, /): ");
+            }
+            return operationSymbol;
         }
-        public string WarteAufEndeDurchBenutzer()
-        {
-            Console.Write("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
-            return Console.ReadLine();
-        }
+        /// Video 87 While Schleife Verbesserungen nicht mehr gebraucht
+        //public string WarteAufEndeDurchBenutzer()
+        //{
+        //    Console.Write("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
+        //    return Console.ReadLine();
+        //}
         //-------------------------------------
 
         public string HoleBenutzerEingabe(string ausgabeText)
         {
             Console.Write(ausgabeText);
-            string Eingabe = Console.ReadLine();
+            //string Eingabe = Console.ReadLine();
+            string Eingabe = Console.ReadKey().KeyChar.ToString();
+            /// Video 87 While Schleife Verbesserungen nur eich char auslesen moeglich? so waere kein enter noetig, wie in ein Taschenrechner
 
             return Eingabe;
         }
 
+        /// Video 87 While Schleife Verbesserungen - Methode Logik verwendet aber unter andere Name HoleOperatorVonBenutzer (wie von Beispiel)
         /// <summary>
         /// Video 64 verbesserung: Methode fuer die Operation Eingabe auslagern.
         /// Nur gueltige Operetionsymbole werden akzeptiert
         /// <summary>
-        public string HoleGueltigeOperation(string operationSymbol)
-        {
-            while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
-            {
-                operationSymbol = HoleBenutzerEingabe("Jetzt die Operation (+, -, ., *, /): ");
-            }
-            return operationSymbol;
-        }
-
+        /// public string HoleGueltigeOperation(string operationSymbol)
+        /// {
+        ///    while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
+        ///    {
+        ///        operationSymbol = HoleBenutzerEingabe("Jetzt die Operation (+, -, ., *, /): ");
+        ///    }
+        ///    return operationSymbol;
+        /// }
         /// <summary>
         /// Video 64 verbesserung: Ausgabe auch in Methode getrennt
         /// Nur gueltige Operetionsymbole werden akzeptiert
