@@ -48,7 +48,8 @@ namespace Taschenrechner_AR
             else
             {
                 model.ErsteZahl = model.Resultat;   // hier nehmen wir das alte Resultat als erste Zahl
-                model.ZweiteZahl = Convert.ToDouble(eingabe);//und geben die Zweite Zahl ein.
+                model.ZweiteZahl = VonStringNachDouble(eingabe);//und geben die Zweite Zahl ein. 
+                /// Video 95 Nochmals Methoden: Rückgabewert als Parameter - Von ToDouble to TryParse. MIT MEINE Methode bzw Umwandlung!
             }
         }
 
@@ -147,7 +148,7 @@ namespace Taschenrechner_AR
 
         static double VonStringNachDouble(string eingabe)
         {
-            return Convert.ToDouble(eingabe);
+            /// return Convert.ToDouble(eingabe);
             /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwerte
             /// Zahlen: Nichts eingeben, Buchstaben, Punkt wird einfach ignoriert...
             /// Ungueltige Zahlen muessen vermeiden werden.
@@ -157,7 +158,35 @@ namespace Taschenrechner_AR
             /// Werden vermieden bzw gefangen via TRY und CATCH.
             /// Dies ist nur grundinfo. Erstmal nur wissen das Ausnahmen da sind und koennen passieren.
 
+            /// Video 95 Nochmals Methoden: Rückgabewert als Parameter - Von ToDouble to TryParse
+            /// TryParse versucht das Umwandeln und gibt zurueck ob es ueberhaupt geht oder nicht.
+            /// WIRD ERSTMAL IN HoleZahlVomBenutzer, ich habe es versucht hier anzupassen
+            //eingabe = Console.ReadLine(); // hier (in meine Methode) ist schon als Parameter eingegeben worden!
+            double zahl;
 
+            while (!Double.TryParse(eingabe, out zahl))
+            {
+                Console.WriteLine("Du musst eine gültige Gleitkommazahl eingeben!");
+                Console.WriteLine("Neben den Ziffern 0-9 sind lediglich die folgenden Sonderzeichen erlaubt: ,.-");
+                Console.WriteLine("Dabei muss das - als erstes Zeichen vor einer Ziffer gesetzt werden.");
+                Console.WriteLine("Der . fungiert als Trennzeichen an Tausenderstellen.");
+                Console.WriteLine("Das , ist das Trennzeichen für die Nachkommastellen.");
+                Console.WriteLine("Alle drei Sonderzeichen sind optional!");
+                Console.WriteLine();
+                Console.Write("Bitte gib erneut eine Zahl für die Berechnung ein: ");
+                eingabe = Console.ReadLine();
+            }
+            return zahl;
+
+            /// VIDEO 95 -TRYPARSE INFO 
+            /// Die Methode TryParse gibt einen Wert vom Typ bool zurück. Mit diesem Wert zeigt sie an, 
+            /// ob die übergebene Zeichenkette erfolgreich in eine Zahl konvertiert werden konnte.
+            /// Ich habe den Aufruf hier in eine while Schleife gepackt, damit der Benutzer solange aufgefordert wird eine Eingabe zu machen, 
+            /// bis sie konvertiert werden kann.
+            /// Wichtig ist hier, dass "nur" geprüft wird ob es sich um eine gültige Zahl handelt. 
+            /// Wie du in einer kommenden Lektion sehen wirst, kann es trotzdem sein, 
+            /// dass die Zahl nicht den definierten Grenzwerten entspricht und somit zwar eine erfolgreich konvertiert werden konnte, 
+            /// jedoch nicht zulässig für die Anwendung ist.
         }
     }
 }
