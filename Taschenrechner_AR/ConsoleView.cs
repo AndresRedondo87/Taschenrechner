@@ -40,6 +40,7 @@ namespace Taschenrechner_AR
         {
             string eingabe = HoleNaechsteAktionVomBenutzer();
 
+            /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwert
             if (eingabe.ToUpper() == "FERTIG")    // Kleine Verbesserung um alle gross/klein schreiben zu erkennen (Fertig/fertig/FERTIG/FERtig...)
             {
                 BenutzerWillBeenden = true;
@@ -66,11 +67,10 @@ namespace Taschenrechner_AR
         {
             Console.Write("\nBitte geben Sie eine Zahl ein : ");
             string eingabe = Console.ReadLine();
-            if(eingabe == "FERTIG")
-            {
-                BenutzerWillBeenden = true;
-                eingabe = "0,0";//sicherheit, sonst ist die Konvertierung danach fehlerhaft
-            }
+
+            /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwert
+            /// braucht man auch Wertgrenzen fuer zu groesse und zu kleine Werte.
+            /// sonst z.B. wird ueberlaufen mit Unendlich ersetzt(als 8 dargestellt).
             return VonStringNachDouble(eingabe);
         }
         private string HoleOperatorVonBenutzer()
@@ -78,6 +78,9 @@ namespace Taschenrechner_AR
             //Console.Write("Jetzt die Operation (+, -, ., *, /): "); 
             //return Console.ReadLine();
             /// Video 87 While Schleife Verbesserungen -Hier mit meine HoleGueltigeOperation ersetzt
+            /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwerte
+            /// Ungueltige Operationsymbole muessen vermeiden werden.
+
             string operationSymbol = "";
             while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
             {
@@ -86,7 +89,7 @@ namespace Taschenrechner_AR
             return operationSymbol;
         }
 
-
+        // Fuer Operation eingabe nur! nur ein Key bzw. Char!!
         public string HoleBenutzerEingabe(string ausgabeText)
         {
             Console.Write(ausgabeText);
@@ -145,6 +148,10 @@ namespace Taschenrechner_AR
         static double VonStringNachDouble(string eingabe)
         {
             return Convert.ToDouble(eingabe);
+            /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwerte
+            /// Zahlen: Nichts eingeben, Buchstaben, Punkt wird einfach ignoriert...
+            /// Ungueltige Zahlen muessen vermeiden werden.
+
         }
     }
 }
