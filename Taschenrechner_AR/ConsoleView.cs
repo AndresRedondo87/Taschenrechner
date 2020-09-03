@@ -151,6 +151,12 @@ namespace Taschenrechner_AR
             /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwerte
             /// Zahlen: Nichts eingeben, Buchstaben, Punkt wird einfach ignoriert...
             /// Ungueltige Zahlen muessen vermeiden werden.
+            /// Video 94 Ausnahmen(exceptions) Wenn Etwas unerwartetes passiert
+            /// Ausnahmen kommen wenn etwas unerwartet kommt. 
+            /// Kann man nur hier gesehen, sonst wird das Programm abbrechen oder voellig durcheinander kommen.
+            /// Werden vermieden bzw gefangen via TRY und CATCH.
+            /// Dies ist nur grundinfo. Erstmal nur wissen das Ausnahmen da sind und koennen passieren.
+
 
         }
     }
