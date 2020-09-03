@@ -16,20 +16,20 @@ namespace Taschenrechner_AR
     {
         static void Main()
         {
-            /// Video 81 Mini-UEbung - erstelle die Klasse ConsoleView
-            /// Video 82 Korrektur fuer die Klasse ConsoleView. die view.xyz hat gut funktioniert./// Video 82 Korrektur fuer die Klasse ConsoleView. diese model wird fuer den view gebraucht, so wir verlagern es zu ganz am Anfang
             RechnerModel model = new RechnerModel();
             ConsoleView view = new ConsoleView(model); //diese Konstruktor wird auch initialisiert deswegen brauchen wir den model rein.
-            AnwendungsController controller = new AnwendungsController(view, model);
+            AnwendungsController controller = new AnwendungsController(view, model);//diese braucht die anderen 2 Objekte zum Initialisierung
 
-            /// Video 83 alles aus der main rauskopiert erstmal.
-            /// Video 83 nur das ausfuehren aufruf wird benoetigt.
             controller.Ausfuehren();
         }
 
-        /// Video 80 Berechnung Methode und einzelne Berechnungen, sind jetzt in eine Klasse getrennt: RechnerModel
-        /// Video 83 Ausfuehren ist in Controller, eingabe und ausgaben in view
 
+        /// Video 88 Refactoring:  ein Kernaktivitaet bei der Implementierung
+        /// taktik anwenden/suchen um die Probleme aufzuloesen.
+        /// Das haben wir in die letzte Iteration (und auch etwas in die vorigen) wo wir den code aendern um 
+        /// die Fehler zu korrigieren oder funktionen implementieren oder die evolvierbarkeit zu verbessern:
+        /// Methode und Properties aneders zu definieren/lagern/ methode anders zu behandeln...
+        
         /// <summary>
         /// Methoden Definieren in 7 Schritten
         /// -(Optional)Modifizierer definieren (Zugriffsmodifizierer)

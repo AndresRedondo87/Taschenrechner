@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Taschenrechner_AR
 {
     /// <summary>
-    /// Video 80 Die Kernlogik des Taschenrechners in einer Klasse
+    /// Taschenrechner: RechnerModel fuer die Berechnung
     /// </summary>
     class RechnerModel
     {
@@ -15,29 +15,23 @@ namespace Taschenrechner_AR
         public double ZweiteZahl { get;  set; }
         public double Resultat { get; private set; }
         public string Operation { get;  set; }
-        /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
-        /// 
-        /// Video 83 neue Operation Property die eigentlich hier gehoert
-        /// Video 80-2te Teil- RESULTAT Property und setter privat gestzt sodass den Resultat darf nicht extern geaendert werden.
+
+        /// Zahlen, Resultat und Operation sind Properties und gehoeren hier
+        /// RESULTAT Property setter privat gestzt sodass den Resultat darf nicht extern geaendert werden.
         /// und auch ein neuer konstruktor mit
         public RechnerModel()
         {
             Resultat = 0;
             Operation = "unbekannt";
-            /// Video 83 sicherheit um unbekannte Operation wen die Eingabe irgendwie scheitert... siehe Berechne switch-case
+            /// Um unbekannte Operation wen die Eingabe irgendwie scheitert... siehe Berechne switch-case
         }
 
-        /// Video 80 Zugriffsmodifizierer von static zu public da es extern verwendet wird.
+        /// Zugriffsmodifizierer von static zu public da es extern verwendet wird.
         /// Es ist kein Klassenmethode mehr, da es veroeffentlich sein muss.
         /// Die einzelne Berechnungen duerfen private sein, weil sie nicht extern aufgerufen werden, nur "Berechne" (umbennant um besser zu verstehen)
-        /// Video 80-2te Teil- RESULTAT ist jetzt eine Property, so jetzt Berechne kann VOID weden und den Ergebniss in den Property RESULTAT speichern!!
+        /// RESULTAT ist eine Property, so jetzt Berechne kann VOID weden und den Ergebniss in den Property RESULTAT speichern!!
         public void Berechne()
         {
-            /// Video 80-2te Teil-  "double ergebniss = 0;" nicht mehr gebraucht wegen Resultat Property
-            /// Video 83 sicherheit  Operation ist jetzt eine Property dieses Klasses
-            /// this.Operation = operation;
-
-            /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
             switch (this.Operation)
             {
                 case "+":
@@ -69,8 +63,7 @@ namespace Taschenrechner_AR
                         break;
                     }
             }
-            /// return ergebniss; bzw return Resultat
-            /// Video 80-2te Teil-  "double ergebniss = 0;" nicht mehr gebraucht wegen Resultat Property
+            /// return ergebniss; wegen Resultat nicht mehr gebraucht 
         }
 
         private double Addiere(double ersterSummand, double zweiterSummand)

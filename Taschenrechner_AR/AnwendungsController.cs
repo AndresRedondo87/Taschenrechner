@@ -9,10 +9,9 @@ namespace Taschenrechner_AR
     class AnwendungsController
     {
         /// Video 83 Klebstoff zwischen die anderen Klassen ---> AnwendungsController
-        /// 
         private ConsoleView view;
         private RechnerModel model;
-        //wir zugreifen an die anderen klassen und beim ein Objekt erstellen werden die beide auch gebrauckt im Konstruktor
+        //wir zugreifen an die anderen klassen und beim ein Objekt erstellen werden die beide auch gebraucht im Konstruktor
         public AnwendungsController(ConsoleView view, RechnerModel model)
         {
             this.view = view;
@@ -22,24 +21,6 @@ namespace Taschenrechner_AR
 
         public void Ausfuehren()
         {
-            /// Video 87 While Schleife - wollen wir noch ne Runde?
-            /// Das ganze Hauptteil des Ausfuhrens in ein WHILE kapseln:
-            /// 
-            /// Video 87 While Schleife Verbesserungen erster while auskommentiert
-            ///while (!view.BenutzerWillBeenden)
-            ///{
-            /// Video 83 alles aus der main rauskopiert erstmal.
-            /// Video 82 Korrektur fuer die Klasse ConsoleView. Die Strings aus Program main muessten raus,
-            ///string ersteZahlAlsString = view.HoleBenutzerEingabe("\n\nBitte geben Sie die erste Zahl ein : ");
-            ///string operation = "";
-            ///operation = view.HoleGueltigeOperation(operation);
-            ///string zweiteZahlAlsString = view.HoleBenutzerEingabe("Bitte geben Sie die zweite Zahl ein: ");
-            ///double ersteZahl = view.HoleZahlvonBenutzer();
-            ///string operation = view.HoleOperatorVonBenutzer();
-            ///double  zweiteZahl = view.HoleZahlvonBenutzer();
-            /// Video 83 ZahlEingaben schon direkt konvertiert
-
-            /// Video 84 MVC Bonus - Mehr Verantwortung fuer den ConsoleView
             //view.HoleEigabenVomBenutzer();
             /// Video 87 While Schleife Verbesserungen
             view.HoleEingabenFuerErsteBerechnungVomBenutzer();
@@ -59,11 +40,6 @@ namespace Taschenrechner_AR
                 view.KompletteBerechnungAusgeben();
             }
 
-            ///}/// Video 87 While Schleife Verbesserungen
-            // Programm Beenden
-            //view.HoleBenutzerEingabe("\n\nDrücken Sie bitte die ENTER Taste zum beenden");
-            /// Video 87 While Schleife Verbesserungen
-            /// view.WarteAufEndeDurchBenutzer();
             view.HoleEingabenFuerFortlaufendeBerechnung();
 
             while (!view.BenutzerWillBeenden)
@@ -82,7 +58,7 @@ namespace Taschenrechner_AR
                     ///Ausgabe
                     view.KompletteBerechnungAusgeben();
                 }
-                view.HoleEingabenFuerFortlaufendeBerechnung();
+                view.HoleEingabenFuerFortlaufendeBerechnung(); // hier haben wir die Wiederholung
             }
 
         }
