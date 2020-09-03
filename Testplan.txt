@@ -1,0 +1,11 @@
+TESTPLAN (für Iteration3):
+-Eingaben: 
+--Zahlen müssen Zahlen sein(kein andere Buchstabe oder Symbol sein/enthalten)
+--Zahlen max und min Wert-Grenzen?	
+--Resultat max und min Wert-Grenzen?
+--Operation muss eine Operationssymbol sein
+--"Fertig" Eingabe Erkennung zum Beenden prüfen.
+
+-Ausgaben:
+--Korrekte Texte und Formatierungen.
+-- Resultat korrekt und richtig dargestellt.
