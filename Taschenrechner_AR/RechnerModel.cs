@@ -8,13 +8,19 @@ namespace Taschenrechner_AR
 {
     /// <summary>
     /// Taschenrechner: RechnerModel fuer die Berechnung
+    /// Video 96, um Tests zu erstellen, die Klasse muss erstmal public sein.
+    /// Dann rechte Mausclick auf die Methode die wir testen wollen und "Komponententests erstellen auswaehlen
+    /// Da die Optionen einfach wie sie sind lassen und Ok drucken. es erstellt ein Test-Projekt in unsere Projekt.
+    /// 
+    /// Wichtig ist, dass du nun die Klasse RechnerModel mit dem Zugriffsmodifizierer public versiehst. 
+    /// Wenn du das nicht machst, dann können die Unittests diese Klasse nicht sehen und damit auch nicht testen.
     /// </summary>
-    class RechnerModel
+    public class RechnerModel
     {
-        public double ErsteZahl { get;  set; }
-        public double ZweiteZahl { get;  set; }
+        public double ErsteZahl { get; set; }
+        public double ZweiteZahl { get; set; }
         public double Resultat { get; private set; }
-        public string Operation { get;  set; }
+        public string Operation { get; set; }
 
         /// Zahlen, Resultat und Operation sind Properties und gehoeren hier
         /// RESULTAT Property setter privat gestzt sodass den Resultat darf nicht extern geaendert werden.
@@ -93,8 +99,16 @@ namespace Taschenrechner_AR
             }
             else
             {
-                Console.WriteLine("\nERROR, DARF MAN NIE DURCH ZERO TEILEN ERGEBNISS = 0 NICHT REAL!!");
-                return 0;
+                Console.WriteLine("\nERROR, DARF MAN NIE DURCH ZERO TEILEN ERGEBNISS = UNENDLICH NICHT REAL!!");
+                // Video 96, angepasst um die Tests zu Pruefen (return geaendert von 0 to Positive oder Negative Infinity)
+                if (Math.Sign(dividend) == Math.Sign(divisor))  /// +/+ und -/- positive
+                {
+                    return Double.PositiveInfinity;
+                }
+                else                                            /// +/- oder -/+ negative
+                {
+                    return Double.NegativeInfinity;
+                }
             }
         }
     }
