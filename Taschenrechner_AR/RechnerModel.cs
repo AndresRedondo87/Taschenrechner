@@ -32,6 +32,20 @@ namespace Taschenrechner_AR
             /// Um unbekannte Operation wen die Eingabe irgendwie scheitert... siehe Berechne switch-case
         }
 
+
+        /// <summary>
+        ///  Video 97 - Wert Eingaben muessen nur zwischen -10 und +100 akzeptiert werden
+        /// </summary>
+        /// <param name="zahl"></param>
+        /// <returns></returns>
+        public bool PruefeWertebereichZahl(double zahl)
+        {
+            return zahl > -10 & zahl < 100; ;
+        }
+
+
+
+
         /// Zugriffsmodifizierer von static zu public da es extern verwendet wird.
         /// Es ist kein Klassenmethode mehr, da es veroeffentlich sein muss.
         /// Die einzelne Berechnungen duerfen private sein, weil sie nicht extern aufgerufen werden, nur "Berechne" (umbennant um besser zu verstehen)

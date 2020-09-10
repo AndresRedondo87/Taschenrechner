@@ -146,7 +146,7 @@ namespace Taschenrechner_AR
             /// Korrektur fuer die Klasse ConsoleView: kein Parameter mehr sondern werden aus der model geholt!!
         }
 
-        static double VonStringNachDouble(string eingabe)
+        private double VonStringNachDouble(string eingabe)
         {
             /// return Convert.ToDouble(eingabe);
             /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwerte
@@ -164,14 +164,25 @@ namespace Taschenrechner_AR
             //eingabe = Console.ReadLine(); // hier (in meine Methode) ist schon als Parameter eingegeben worden!
             double zahl;
 
-            while (!Double.TryParse(eingabe, out zahl))
+            /// Video 97 Konditionen erweitert um die Grenzwerte auch zu Beruecksichtigen
+            /// Die Pruefung steht aber in RechnerModel, da es dahin gehoert
+            while ((!Double.TryParse(eingabe, out zahl)||(!model.PruefeWertebereichZahl(zahl))))
             {
-                Console.WriteLine("Du musst eine gültige Gleitkommazahl eingeben!");
-                Console.WriteLine("Neben den Ziffern 0-9 sind lediglich die folgenden Sonderzeichen erlaubt: ,.-");
-                Console.WriteLine("Dabei muss das - als erstes Zeichen vor einer Ziffer gesetzt werden.");
-                Console.WriteLine("Der . fungiert als Trennzeichen an Tausenderstellen.");
-                Console.WriteLine("Das , ist das Trennzeichen für die Nachkommastellen.");
-                Console.WriteLine("Alle drei Sonderzeichen sind optional!");
+                if (!Double.TryParse(eingabe, out zahl))
+                {
+                    Console.WriteLine("Du musst eine gültige Gleitkommazahl eingeben!");
+                    Console.WriteLine("Neben den Ziffern 0-9 sind lediglich die folgenden Sonderzeichen erlaubt: ,.-");
+                    Console.WriteLine("Dabei muss das - als erstes Zeichen vor einer Ziffer gesetzt werden.");
+                    Console.WriteLine("Der . fungiert als Trennzeichen an Tausenderstellen.");
+                    Console.WriteLine("Das , ist das Trennzeichen für die Nachkommastellen.");
+                    Console.WriteLine("Alle drei Sonderzeichen sind optional!");
+                }
+                else if (!model.PruefeWertebereichZahl(zahl))
+                {
+                    Console.WriteLine("Du musst ein gültiger WERT eingeben!");
+                    Console.WriteLine("NWir akzeptieren nur Werte zwischen -10 und +100");
+                }
+
                 Console.WriteLine();
                 Console.Write("Bitte gib erneut eine Zahl für die Berechnung ein: ");
                 eingabe = Console.ReadLine();
