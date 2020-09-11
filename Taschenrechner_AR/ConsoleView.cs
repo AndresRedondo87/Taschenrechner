@@ -34,6 +34,12 @@ namespace Taschenrechner_AR
             // TODO: Refactoring benötigt - Probleme: unübersichtlich, nicht DRY, nicht SLA!
             // AR ?? REFACTORING??? DRY? SLA?- CHECK TODO
             // Eingabe und Validierung der ersten Zahl
+
+            /// UEber Video 98 AEnderungen:
+            /// Diese logik hier fuer die Fehler.GrenzwertUeberschreitung) ist eigentlich [und vielleicht falschlich] 
+            /// schon unter HoleZahlVomBenutzer bzw unter VonStringNachDouble schon erledigt.
+            /// TODO: Koennte korrigiert werden, sind aber vollkommen funktionsfaehig
+
             do
             {
                 model.ErsteZahl = HoleZahlVomBenutzer();
