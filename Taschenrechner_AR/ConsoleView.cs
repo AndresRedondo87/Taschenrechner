@@ -32,7 +32,7 @@ namespace Taschenrechner_AR
         {
             //model.ErsteZahl = HoleZahlvonBenutzer();
             // TODO: Refactoring benötigt - Probleme: unübersichtlich, nicht DRY, nicht SLA!
-
+            // AR ?? REFACTORING??? DRY? SLA?- CHECK TODO
             // Eingabe und Validierung der ersten Zahl
             do
             {
@@ -65,7 +65,10 @@ namespace Taschenrechner_AR
             string eingabe = HoleNaechsteAktionVomBenutzer();
 
             /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwert
-            if (eingabe.ToUpper() == "FERTIG")    // Kleine Verbesserung um alle gross/klein schreiben zu erkennen (Fertig/fertig/FERTIG/FERtig...)
+            /// Video 99 -  String.ToUpper - Sichere UEberpruefung durch aendern der GROSS/klein-Geschrieben
+            /// (Eigentlich schon implementiert)
+            /// Kleine Verbesserung um alle gross/klein schreiben zu erkennen (Fertig/fertig/FERTIG/FERtig...)
+            if (eingabe.ToUpper() == "FERTIG")    
             {
                 BenutzerWillBeenden = true;
             }
@@ -221,7 +224,7 @@ namespace Taschenrechner_AR
                 else if (!model.PruefeWertebereichZahl(zahl))
                 {
                     Console.WriteLine("Du musst ein gültiger WERT eingeben!");
-                    Console.WriteLine("NWir akzeptieren nur Werte zwischen -10 und +100");
+                    Console.WriteLine("Wir akzeptieren nur Werte zwischen -10 und +100");
                 }
 
                 Console.WriteLine();
