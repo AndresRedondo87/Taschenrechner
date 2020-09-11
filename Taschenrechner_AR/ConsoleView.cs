@@ -30,9 +30,33 @@ namespace Taschenrechner_AR
         /// While Schleife Verbesserungen 
         public void HoleEingabenFuerErsteBerechnungVomBenutzer()
         {
-            model.ErsteZahl = HoleZahlvonBenutzer();
+            //model.ErsteZahl = HoleZahlvonBenutzer();
+            // TODO: Refactoring benötigt - Probleme: unübersichtlich, nicht DRY, nicht SLA!
+
+            // Eingabe und Validierung der ersten Zahl
+            do
+            {
+                model.ErsteZahl = HoleZahlVomBenutzer();
+                if (model.AktuellerFehler == Fehler.GrenzwertUeberschreitung)
+                {
+                    Console.WriteLine("\nFEHLER: Zahl muss größer als {0} und kleiner als {1} sein.", RechnerModel.UntererGrenzwert, RechnerModel.ObererGrenzwert);
+                }
+            }
+            while (model.AktuellerFehler == Fehler.GrenzwertUeberschreitung);
+
+            // Eingabe und Validierung des Operators
             model.Operation = HoleOperatorVonBenutzer();
-            model.ZweiteZahl = HoleZahlvonBenutzer();
+            //model.ZweiteZahl = HoleZahlVomBenutzer();
+            // Eingabe und Validierung der zweiten Zahl
+            do
+            {
+                model.ZweiteZahl = HoleZahlVomBenutzer();
+                if (model.AktuellerFehler == Fehler.GrenzwertUeberschreitung)
+                {
+                    Console.WriteLine("\nFEHLER: Zahl muss größer als {0} und kleiner als {1} sein.", RechnerModel.UntererGrenzwert, RechnerModel.ObererGrenzwert);
+                }
+            }
+            while (model.AktuellerFehler == Fehler.GrenzwertUeberschreitung);
         }
 
         /// Hier wird das fertig eingabe erkannt zum beenden!
@@ -64,7 +88,7 @@ namespace Taschenrechner_AR
         /// Machnmal die Methode die wir so schoen standarisiert hatten, muessen neu angepasst sein auf die neue Klassen
         /// Diese 3 methoden sind die Loesung von Lehrer, meine (HoleGueltigeOperation) istrein integriert in HoleOperatorVonBenutzer
         //-------------------------------------
-        private double HoleZahlvonBenutzer()
+        private double HoleZahlVomBenutzer()
         {
             Console.Write("\nBitte geben Sie eine Zahl ein : ");
             string eingabe = Console.ReadLine();
@@ -82,12 +106,29 @@ namespace Taschenrechner_AR
             /// Video 92 - Fehler finden, Verwende unzulaessige Werte und Grenzwerte
             /// Ungueltige Operationsymbole muessen vermeiden werden.
 
-            string operationSymbol = "";
-            while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
+            //// Video 98 Enums Wir haben Jetzt der Enum fuer Fehler 
+            ////string operationSymbol = "";
+            ////while ((operationSymbol != "+") && (operationSymbol != "-") && (operationSymbol != "*") && (operationSymbol != ".") && (operationSymbol != "/"))
+            ////{
+            ////    operationSymbol = HoleBenutzerEingabe("\nJetzt die Operation (+, -, ., *, /): ");
+            ////}
+            ////return operationSymbol;
+            
+            string operation;
+            do
             {
-                operationSymbol = HoleBenutzerEingabe("\nJetzt die Operation (+, -, ., *, /): ");
+                //Console.Write("Bitte gib die auszuführende Operation ein (+, -, /, *): ");
+                operation =  HoleBenutzerEingabe("\nJetzt die Operation (+, -, ., *, /): ");
+                model.Operation = operation;
+
+                if (model.AktuellerFehler == Fehler.UngueltigeOperation)
+                {
+                    Console.WriteLine("\nFEHLER: Die eingegebene Operation wird nicht unterstützt.");
+                }
             }
-            return operationSymbol;
+            while (model.AktuellerFehler == Fehler.UngueltigeOperation);
+
+            return operation;
         }
 
         // Fuer Operation eingabe nur! nur ein Key bzw. Char!!
@@ -110,7 +151,7 @@ namespace Taschenrechner_AR
             //kompletteAusgabe ist der string um die Ausgabe getrennt zu formatieren
             string kompletteAusgabe = "\nDas {4} Resultat ist: \n   {0} \n {3} {1} \n--------\n   {2}";
             //Operation Name auch anpassen
-            string operationAlsText = "";
+            string operationAlsText;
             switch (model.Operation)
             {
                 case "+":
