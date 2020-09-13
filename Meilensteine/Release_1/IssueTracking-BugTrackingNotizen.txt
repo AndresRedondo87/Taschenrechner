@@ -1,0 +1,4 @@
+Hier einfach die Bugs oder unschönheiten notieren zum Korrektur.
+- Wertebereich check ist verdoppelt, die Lösung von Lehrer Benutzen.
+- Viel zu viele Kommentare, bitte zussamenfassen.
+- ...

@@ -1,0 +1,11 @@
+TAG: Release_1.0_fertig
+ART: Internes Entwicklungsrelease
+STATUS: Informell getestet - kann an Tester verteilt werden.
+FUNKTION:
+	* Addieren/Substrahieren/Multiplizieren/Dividieren von Gleitkommazahlen zwischen -10 und +100
+	* Warnung gegen durch-Zero-teilen 
+	* Schnelles Starten (einfach die EXE ausführen)
+	** Programm Kurs kommentiert bis video 88
+	*** MVC Verbesserungen
+	*** Fortlaufendes Berechnen und "fertig" zum beenden.
+	**** Ungültige Eingaben werden vermieden. 
