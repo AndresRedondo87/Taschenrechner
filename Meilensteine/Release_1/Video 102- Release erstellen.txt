@@ -1,0 +1,20 @@
+
+- Rechte maus auf unsere Projekt, und da Eigenschaften auswählen. 
+Da die Signierung ClickOnde-Manifest muss ausgeschaltet sein (nicht markiert).
+Da sind auch andere optionen angezeigt die wir gar nicht ändern brauchen.
+
+- Auf den Erstellen toolbar oben, die [Projektname] veröffentlichen auswählen.
+Das öffnet den Veröffentlichings-Assistent. 
+Da Wählen wir wohin es gespeichert wird (den Setup usw).
+Die Option für Installation soll via CDrom oder DVD, wird aber auch mit zip Datei funktionieren, keine sorge.
+Die Option Anwendung sucht nicht nach updates auch markieren (natürlich).
+Weiter und fertigstellen. (könnte probleme machen, da es manchmal diese veröffentlichen assistent aktiviert doch diese ClickOne)
+Wenn es passiert, einfach zurück gehen uns es ausschalten.
+Dann da auf Veröffentlichen menü und daraus nochmal den Assistent ausführen.
+
+
+-Bisher haben wir kein app oder Programm in Start in Windows zu sehen...
+-Beim Ausführen von unsere Setup, wird wahrscheinlich eine Warnung kommen da es nicht signiert ist, trotzdem installieren.
+Es wird schnell installiert und ausgeführt.
+Ab jetzt ist es auch sichtbar in Windows wie ein installierter programm. 
+Vielleicht nicht siper schön aber vollständig funktionsfähig.

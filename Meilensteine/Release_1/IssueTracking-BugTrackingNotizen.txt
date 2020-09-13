@@ -1,4 +1,5 @@
 Hier einfach die Bugs oder unschönheiten notieren zum Korrektur.
 - Wertebereich check ist verdoppelt, die Lösung von Lehrer Benutzen.
 - Viel zu viele Kommentare, bitte zussamenfassen.
+-Nach versuch durch Zero zu teilen, wird der erster Zahl falschlich mit zero ersetzt!!!
 - ...
